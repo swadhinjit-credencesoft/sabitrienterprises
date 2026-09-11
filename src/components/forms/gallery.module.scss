@@ -1,9 +1,9 @@
-﻿@use '../../styles/variables' as *;
+@use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
 .section {
-  @include section-padding;
-  background-color: $color-background;
+  padding: 64px 0;
+  background-color: #ffffff;
 }
 
 .container {
@@ -19,27 +19,35 @@
 }
 
 .filter {
-  padding: 10px 20px;
-  border-radius: $radius-full;
-  border: 1px solid $color-border;
-  background-color: $color-white;
-  color: $color-muted;
-  font-size: 0.875rem;
-  font-weight: 500;
+  padding: 9px 20px;
+  border-radius: 20px;
+  border: 1px solid #d4cebe;
+  background-color: #ffffff;
+  color: $color-primary;
+  font-size: 0.84rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 200ms ease;
+  transition: all 180ms ease;
 
   &:hover {
-    border-color: $color-accent;
-    color: $color-foreground;
+    border-color: $color-primary;
+    color: $color-primary;
+    background-color: #faf8f5;
   }
 }
 
 .filterActive {
-  background-color: $color-foreground;
-  border-color: $color-foreground;
+  background-color: $color-primary;
+  border-color: $color-primary;
   color: $color-white;
+  box-shadow: 0 4px 12px rgba(18, 29, 51, 0.15);
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+  }
 }
+
 
 .grid {
   display: grid;

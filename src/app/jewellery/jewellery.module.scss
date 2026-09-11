@@ -1,4 +1,4 @@
-﻿@use '../../styles/variables' as *;
+@use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
 .section {
@@ -81,6 +81,11 @@
   }
 }
 
+.collectionInfo {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Products */
 .productGrid {
   display: grid;
@@ -153,8 +158,15 @@
   color: $color-primary;
   font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   line-height: 1.35;
+}
+
+.productMaterial {
+  font-size: 0.8125rem;
+  color: $color-accent;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .productDesc {
@@ -174,25 +186,25 @@
   margin-top: auto;
 }
 
-.priceWrap {
+.productPriceWrap {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.price {
+.productPrice {
   font-size: 1.15rem;
   font-weight: 700;
   color: $color-accent;
 }
 
-.mrp {
-  font-size: 0.8125rem;
+.productMrp {
+  font-size: 0.75rem;
   color: $color-muted;
   text-decoration: line-through;
 }
 
-.enquireBtn {
+.enquireLink {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -211,11 +223,11 @@
   }
 }
 
-/* Trust / Care */
-.trustGrid {
+/* Why choose us */
+.whyGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 16px;
   margin-top: 36px;
 
   @include respond-to('sm') {
@@ -227,33 +239,35 @@
   }
 }
 
-.trustCard {
+.whyItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   background-color: #ffffff;
   border: 1px solid #ede8df;
   border-radius: 12px;
-  padding: 24px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 18px 20px;
+  color: $color-primary;
+  font-weight: 600;
+  font-size: 0.9375rem;
   box-shadow: 0 2px 8px rgba(18, 29, 51, 0.02);
+  transition: all 200ms ease;
 
-  svg {
-    color: $color-accent;
-    margin-bottom: 14px;
+  &:hover {
+    border-color: $color-accent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(18, 29, 51, 0.06);
   }
+}
 
-  h4 {
-    font-family: var(--font-serif), Georgia, serif;
-    color: $color-primary;
-    margin-bottom: 6px;
-    font-size: 1rem;
-    font-weight: 700;
-  }
-
-  p {
-    color: $color-muted;
-    font-size: 0.8125rem;
-    line-height: 1.5;
-  }
+.whyIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: #f5eedf;
+  color: $color-accent;
+  flex-shrink: 0;
 }

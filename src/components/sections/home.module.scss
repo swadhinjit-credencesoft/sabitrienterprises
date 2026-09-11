@@ -1,73 +1,53 @@
-@use '../../styles/variables' as *;
+﻿@use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-/* ============ SECTION DIVIDER TITLE ============ */
-.sectionTitleRow {
+/* ============ FULL HERO LANDING SCREEN ============ */
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 12% 28%, #ffffff 0%, #fdfbf7 48%, #f5efe2 100%);
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 32px;
-  text-align: center;
+  padding-top: $nav-height;
 }
 
-.titleLine {
-  display: inline-block;
-  height: 1.5px;
-  width: 48px;
-  background: linear-gradient(90deg, transparent, $color-accent);
-
-  &.lineRight {
-    background: linear-gradient(90deg, $color-accent, transparent);
-  }
-
-  @include respond-to('md') {
-    width: 72px;
-  }
-}
-
-.titleDiamond {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  background-color: $color-accent;
-  transform: rotate(45deg);
-}
-
-.sectionHeading {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: $color-primary;
-  letter-spacing: -0.01em;
-
-  @include respond-to('md') {
-    font-size: 1.55rem;
-  }
-}
-
-/* ============ HERO ============ */
 .hero {
   position: relative;
   width: 100%;
-  padding-top: calc(#{$nav-height} + 32px);
-  padding-bottom: 56px;
-  background: radial-gradient(circle at 10% 25%, #ffffff 0%, #fdfbf7 50%, #f6f1e6 100%);
-  overflow: hidden;
+  padding-top: 36px;
+  padding-bottom: 52px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 36px;
+  gap: 44px;
   align-items: center;
+  z-index: 2;
 
   @include container;
 
   @include respond-to('lg') {
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 40px;
-    padding-top: calc(#{$nav-height} + 40px);
-    padding-bottom: 64px;
-    min-height: calc(88vh - #{$nav-height});
+    gap: 52px;
+    padding-top: 24px;
+    padding-bottom: 36px;
   }
+}
+
+.heroWatermark {
+  position: absolute;
+  top: 8%;
+  left: -6%;
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.watermarkSvg {
+  width: 100%;
+  height: 100%;
 }
 
 .heroLeft {
@@ -78,17 +58,33 @@
   z-index: 2;
 }
 
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: $color-accent;
+  margin-bottom: 16px;
+  padding: 5px 16px;
+  background: $color-accent-light;
+  border-radius: 20px;
+  border: 1px solid rgba(197, 154, 61, 0.25);
+}
+
 .heroTitle {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 2.35rem;
+  font-size: 2.55rem;
   font-weight: 800;
   color: $color-primary;
-  line-height: 1.18;
-  margin-bottom: 18px;
+  line-height: 1.15;
+  margin-bottom: 20px;
   letter-spacing: -0.025em;
 
   @include respond-to('md') {
-    font-size: 3.35rem;
+    font-size: 3.65rem;
   }
 }
 
@@ -96,22 +92,25 @@
   color: $color-accent;
   font-style: italic;
   font-weight: 700;
+  background: $gradient-gold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .heroSubtitle {
-  font-size: 1.025rem;
-  line-height: 1.7;
+  font-size: 1.075rem;
+  line-height: 1.72;
   color: $color-muted;
-  max-width: 520px;
-  margin-bottom: 30px;
+  max-width: 530px;
+  margin-bottom: 34px;
 }
 
 .heroActions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: 16px;
+  margin-bottom: 28px;
 }
 
 .heroBtnPrimary {
@@ -120,17 +119,19 @@
   gap: 8px;
   background-color: $color-primary;
   color: $color-white;
-  padding: 12px 22px;
+  padding: 14px 26px;
   border-radius: 8px;
-  font-size: 0.9375rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(18, 29, 51, 0.18);
-  transition: all 180ms ease;
+  box-shadow: 0 4px 18px rgba(18, 29, 51, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 200ms ease;
 
   &:hover {
     background-color: $color-dark;
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(18, 29, 51, 0.28);
   }
 }
 
@@ -138,19 +139,20 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: $color-accent;
+  background: $gradient-gold;
   color: $color-white;
-  padding: 12px 22px;
+  padding: 14px 26px;
   border-radius: 8px;
-  font-size: 0.9375rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(197, 154, 61, 0.28);
-  transition: all 180ms ease;
+  box-shadow: 0 4px 18px rgba(197, 154, 61, 0.35);
+  transition: all 200ms ease;
 
   &:hover {
-    background-color: $color-accent-hover;
+    filter: brightness(1.06);
     transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(197, 154, 61, 0.45);
   }
 }
 
@@ -158,13 +160,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8125rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: #926f1c;
-  padding: 6px 14px;
-  background-color: rgba(197, 154, 61, 0.09);
+  padding: 7px 18px;
+  background-color: rgba(197, 154, 61, 0.1);
   border-radius: 6px;
-  border: 1px solid rgba(197, 154, 61, 0.2);
+  border: 1px solid rgba(197, 154, 61, 0.22);
 }
 
 .locationFlourish {
@@ -178,26 +180,30 @@
   width: 100%;
 }
 
-/* Exact Reference Multi-Photo Diagonal Mosaic */
+/* 5-Video Full Landing Geometric Mosaic */
 .heroMosaic {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 36px);
-  gap: 10px;
+  grid-template-rows: repeat(12, 40px);
+  gap: 12px;
   width: 100%;
-  max-width: 540px;
+  max-width: 580px;
   margin: 0 auto;
 
   @include respond-to('md') {
-    grid-template-rows: repeat(12, 42px);
+    grid-template-rows: repeat(12, 46px);
+  }
+
+  @include respond-to('xl') {
+    grid-template-rows: repeat(12, 48px);
   }
 }
 
 .mosaicItem {
   position: relative;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 14px 34px rgba(18, 29, 51, 0.16);
   border: 3.5px solid $color-white;
   background-color: #0d172a;
 
@@ -207,7 +213,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 400ms ease;
+    transition: transform 450ms cubic-bezier(0.2, 0, 0.2, 1);
   }
 
   &:hover {
