@@ -23,7 +23,7 @@ export const IMG = {
   market: 'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=2400&auto=format&fit=crop',
   lanterns: 'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2400&auto=format&fit=crop',
   art: '/sabitrienterprisesimg/handcraft3.jpeg',
-    handcraft2: '/sabitrienterprisesimg/handcraft2.jpeg',
+  handcraft2: '/sabitrienterprisesimg/handcraft2.jpeg',
   handcraft: '/sabitrienterprisesimg/handcraft3.jpeg',
   jewellery1: '/sabitrienterprisesimg/jewlerry1.jpeg',
   jewellery2: '/sabitrienterprisesimg/jewlerry2.jpeg',

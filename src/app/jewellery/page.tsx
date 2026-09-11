@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Check, Gem } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import CTASection from '../../components/shared/CTASection';
-import { jewelleryCollections, jewelleryWhyChoose } from '../../data/jewellery';
-import { IMG } from '../../data/images';
-import styles from './jewellery.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import CTASection from '@/components/shared/CTASection';
+import { jewelleryCollections, jewelleryWhyChoose } from '@/data/jewellery';
+import { IMG } from '@/data/images';
+import styles from '@/app/jewellery/jewellery.module.scss';
 
 const JEWELLERY_VIDEO =
   'https://bookonelocal.in/cdn/WhatsApp+Video+2026-08-05+at+2.31.29+PM.mp4';

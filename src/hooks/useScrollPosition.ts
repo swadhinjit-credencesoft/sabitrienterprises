@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setScrolled } from '../store/slices/uiSlice';
+import { setScrolled } from '@/store/slices/uiSlice';
 
 export function useScrollPosition() {
   const dispatch = useDispatch();

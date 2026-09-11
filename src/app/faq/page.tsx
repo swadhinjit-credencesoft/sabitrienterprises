@@ -1,13 +1,13 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MessageCircle } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import FaqClient from './FaqClient';
-import { faqItems } from '../../data/home';
-import { WHATSAPP_NUMBER } from '../../data/navigation';
-import { IMG } from '../../data/images';
-import styles from './faq.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import FaqClient from '@/components/forms/FaqClient';
+import { faqItems } from '@/data/home';
+import { WHATSAPP_NUMBER } from '@/data/navigation';
+import { IMG } from '@/data/images';
+import styles from '@/components/forms/faq.module.scss';
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions',

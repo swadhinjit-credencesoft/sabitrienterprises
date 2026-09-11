@@ -1,5 +1,5 @@
-import { GalleryItem } from '../types';
-import { IMG } from './images';
+import { GalleryItem } from '@/types/index';
+import { IMG } from '@/data/images';
 
 export const galleryCategories = ['All', 'Homestay', 'Tours', 'Jewellery', 'Handicrafts', 'Puri Life'];
 

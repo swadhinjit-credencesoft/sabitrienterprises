@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { BRAND, COMPANY_NAME } from '@/data/navigation';
-import styles from './Logo.module.scss';
+import styles from '@/components/shared/Logo.module.scss';
 
 export default function Logo() {
   return (

@@ -1,5 +1,5 @@
-import { ValueItem, TimelineItem, StatItem, IconCard } from '../types';
-import { IMG } from './images';
+import { ValueItem, TimelineItem } from '@/types';
+import { IMG } from '@/data/images';
 
 export const companyProfile = {
   name: 'Sabitri Enterprises',
@@ -36,13 +36,6 @@ export const companyProfile = {
     'Deep local knowledge for off-the-beaten-path experiences',
   ],
 };
-
-export const companyStats: StatItem[] = [
-  { value: '10', label: 'Years of Service', description: 'Serving guests since our founding in Puri' },
-  { value: '8', label: 'Comfortable Rooms', description: 'Thoughtfully designed homestay rooms' },
-  { value: '25', label: 'Tour Destinations', description: 'Across Odisha and eastern India' },
-  { value: '50', label: 'Partner Artisans', description: 'Local craftsmen and craftswomen' },
-];
 
 export const companyValues: ValueItem[] = [
   {
@@ -102,28 +95,5 @@ export const companyTimeline: TimelineItem[] = [
     year: 'Today',
     title: 'Sabitri Enterprises',
     description: 'Four businesses united under one roof, sharing Odisha’s heritage with the world.',
-  },
-];
-
-export const companyMilestones: IconCard[] = [
-  {
-    icon: 'Home',
-    title: 'Heritage Stay',
-    description: 'A homestay that feels like your own family home in Puri.',
-  },
-  {
-    icon: 'Gem',
-    title: 'Crafted Jewellery',
-    description: 'Traditional gold and silver work passed down through generations.',
-  },
-  {
-    icon: 'MapPin',
-    title: 'Guided Journeys',
-    description: 'Temples, beaches, lagoons, and craft villages — expertly curated.',
-  },
-  {
-    icon: 'Palette',
-    title: 'Living Crafts',
-    description: 'Pattachitra, stone carving, and filigree from master artisans.',
   },
 ];

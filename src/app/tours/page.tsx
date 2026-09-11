@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Clock, MapPin, Check, ChevronDown, ArrowRight } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import Badge from '../../components/ui/Badge/Badge';
-import CTASection from '../../components/shared/CTASection';
-import { tourPackages, destinations, travelServices } from '../../data/tours';
-import { IMG } from '../../data/images';
-import styles from './tours.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import Badge from '@/components/ui/Badge';
+import CTASection from '@/components/shared/CTASection';
+import { tourPackages, destinations, travelServices } from '@/data/tours';
+import { IMG } from '@/data/images';
+import styles from '@/app/tours/tours.module.scss';
 
 export const metadata: Metadata = {
   title: 'Sabitri Tours & Travels',

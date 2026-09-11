@@ -1,4 +1,4 @@
-import { PolicyDocument } from '../types';
+import { PolicyDocument } from '@/types/index';
 
 export const policies: PolicyDocument[] = [
   {
@@ -469,5 +469,3 @@ export const policies: PolicyDocument[] = [
     ],
   },
 ];
-
-export const policyList = policies.map((p) => ({ slug: p.slug, title: p.title, description: p.description }));

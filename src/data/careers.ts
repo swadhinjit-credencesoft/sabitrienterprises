@@ -1,4 +1,4 @@
-import { JobPosting } from '../types';
+import { JobPosting } from '@/types/index';
 
 export const companyPerks = [
   'Family-like work culture',

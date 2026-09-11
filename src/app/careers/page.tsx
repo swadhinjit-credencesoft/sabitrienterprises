@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { MapPin, Briefcase, Check, ArrowRight } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import CTASection from '../../components/shared/CTASection';
-import { jobPostings, companyPerks, careersHowToApply } from '../../data/careers';
-import { IMG } from '../../data/images';
-import styles from './careers.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import CTASection from '@/components/shared/CTASection';
+import { jobPostings, companyPerks, careersHowToApply } from '@/data/careers';
+import { IMG } from '@/data/images';
+import styles from '@/app/careers/careers.module.scss';
 
 export const metadata: Metadata = {
   title: 'Careers',

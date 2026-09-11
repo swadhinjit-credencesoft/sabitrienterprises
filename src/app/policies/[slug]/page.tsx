@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { policies } from '../../../data/policies';
-import styles from './policy.module.scss';
+import { policies } from '@/data/policies';
+import styles from '@/app/policies/[slug]/policy.module.scss';
 
 export function generateStaticParams() {
   return policies.map((policy) => ({ slug: policy.slug }));

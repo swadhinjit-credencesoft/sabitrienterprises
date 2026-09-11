@@ -1,4 +1,4 @@
-import styles from './SectionHeader.module.scss';
+import styles from '@/components/shared/SectionHeader.module.scss';
 
 interface SectionHeaderProps {
   caption?: string;

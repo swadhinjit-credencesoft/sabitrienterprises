@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Check, Sparkles } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import CTASection from '../../components/shared/CTASection';
-import { handicraftCategories, handicraftWhyChoose } from '../../data/handicrafts';
-import { IMG } from '../../data/images';
-import styles from './handicrafts.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import CTASection from '@/components/shared/CTASection';
+import { handicraftCategories, handicraftWhyChoose } from '@/data/handicrafts';
+import { IMG } from '@/data/images';
+import styles from '@/app/handicrafts/handicrafts.module.scss';
 
 export const metadata: Metadata = {
   title: 'Sabitri Handicrafts',

@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Star, Quote } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import CTASection from '../../components/shared/CTASection';
-import { testimonials } from '../../data/home';
-import { IMG } from '../../data/images';
-import styles from './testimonials.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import CTASection from '@/components/shared/CTASection';
+import { testimonials } from '@/data/home';
+import { IMG } from '@/data/images';
+import styles from '@/app/testimonials/testimonials.module.scss';
 
 export const metadata: Metadata = {
   title: 'Testimonials',

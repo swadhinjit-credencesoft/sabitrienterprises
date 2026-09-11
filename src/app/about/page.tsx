@@ -9,16 +9,16 @@ import {
   Leaf,
   ShieldCheck,
 } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import CTASection from '../../components/shared/CTASection';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import CTASection from '@/components/shared/CTASection';
 import {
   companyProfile,
   companyValues,
   companyTimeline,
-} from '../../data/company';
-import { IMG } from '../../data/images';
-import styles from './about.module.scss';
+} from '@/data/company';
+import { IMG } from '@/data/images';
+import styles from '@/app/about/about.module.scss';
 
 export const metadata: Metadata = {
   title: 'About Us',

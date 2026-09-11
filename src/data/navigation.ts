@@ -1,13 +1,24 @@
-import { NavLink, MegamenuItem } from '../types';
-import { IMG } from './images';
+import { NavLink, MegamenuItem } from '@/types';
+import { IMG } from '@/data/images';
+import {
+  COMPANY_NAME,
+  BRAND,
+  TAGLINE,
+  CONTACT_PHONE,
+  CONTACT_EMAIL,
+  CONTACT_ADDRESS,
+  WHATSAPP_NUMBER,
+} from '@/lib/constants';
 
-export const COMPANY_NAME = 'Sabitri Enterprises';
-export const BRAND = 'Sabitri';
-export const TAGLINE = 'Crafting Experiences, Honouring Heritage';
-export const CONTACT_PHONE = '+91  96912 67091';
-export const CONTACT_EMAIL = 'info@sabitrienterprises.com';
-export const CONTACT_ADDRESS = 'Grand Road, Puri, Odisha, India 752001';
-export const WHATSAPP_NUMBER = '919000000000';
+export {
+  COMPANY_NAME,
+  BRAND,
+  TAGLINE,
+  CONTACT_PHONE,
+  CONTACT_EMAIL,
+  CONTACT_ADDRESS,
+  WHATSAPP_NUMBER,
+};
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },

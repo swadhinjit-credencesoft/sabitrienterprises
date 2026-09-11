@@ -1,11 +1,11 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import { policies } from '../../data/policies';
-import { IMG } from '../../data/images';
-import styles from './policies.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import { policies } from '@/data/policies';
+import { IMG } from '@/data/images';
+import styles from '@/app/policies/policies.module.scss';
 
 export const metadata: Metadata = {
   title: 'Policies',

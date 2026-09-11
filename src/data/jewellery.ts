@@ -1,5 +1,5 @@
-import { ProductCategory } from '../types';
-import { IMG } from './images';
+import { ProductCategory } from '@/types/index';
+import { IMG } from '@/data/images';
 
 export const jewelleryCollections: ProductCategory[] = [
   {

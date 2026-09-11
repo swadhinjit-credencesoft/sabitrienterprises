@@ -1,5 +1,5 @@
-import { Room } from '../types';
-import { IMG } from './images';
+import { Room } from '@/types/index';
+import { IMG } from '@/data/images';
 
 export const rooms: Room[] = [
   {

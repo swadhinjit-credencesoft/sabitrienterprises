@@ -6,10 +6,10 @@ import {
   BadgeCheck,
   Sparkles,
 } from 'lucide-react';
-import BookingClient from './BookingClient';
-import { IMG } from '../../data/images';
-import { CONTACT_PHONE, WHATSAPP_NUMBER } from '../../data/navigation';
-import styles from './booking.module.scss';
+import BookingClient from '@/components/forms/BookingClient';
+import { IMG } from '@/data/images';
+import { CONTACT_PHONE, WHATSAPP_NUMBER } from '@/data/navigation';
+import styles from '@/components/forms/booking.module.scss';
 
 export const metadata: Metadata = {
   title: 'Book & Enquire | Sabitri Enterprises, Puri',

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
-import CTASection from '../../../components/shared/CTASection';
-import { blogPosts } from '../../../data/blog';
-import styles from './post.module.scss';
+import CTASection from '@/components/shared/CTASection';
+import { blogPosts } from '@/data/blog';
+import styles from '@/app/blog/[slug]/post.module.scss';
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));

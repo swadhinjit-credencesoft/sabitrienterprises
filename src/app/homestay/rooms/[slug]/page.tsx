@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Check, Users, Ruler, BedDouble, Bath, ArrowRight } from 'lucide-react';
-import RoomCard from '../../../../components/shared/RoomCard';
-import CTASection from '../../../../components/shared/CTASection';
-import { rooms } from '../../../../data/rooms';
-import styles from './room.module.scss';
+import RoomCard from '@/components/shared/RoomCard';
+import CTASection from '@/components/shared/CTASection';
+import { rooms } from '@/data/rooms';
+import styles from '@/app/homestay/rooms/[slug]/room.module.scss';
 
 export function generateStaticParams() {
   return rooms.map((room) => ({ slug: room.slug }));

@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "start": "npx serve out",
+    "typecheck": "tsc --noEmit",
     "preview": "npx serve out"
   },
   "dependencies": {

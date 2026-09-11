@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Wifi, Wind, Waves, Bath, Check, Clock, CalendarDays } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import RoomCard from '../../components/shared/RoomCard';
-import CTASection from '../../components/shared/CTASection';
-import { rooms, roomAmenities, homestayHighlights } from '../../data/rooms';
-import { IMG } from '../../data/images';
-import styles from './homestay.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import RoomCard from '@/components/shared/RoomCard';
+import CTASection from '@/components/shared/CTASection';
+import { rooms, roomAmenities, homestayHighlights } from '@/data/rooms';
+import { IMG } from '@/data/images';
+import styles from '@/app/homestay/homestay.module.scss';
 
 export const metadata: Metadata = {
   title: 'Sabitri Homestay',

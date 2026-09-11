@@ -1,21 +1,6 @@
-export interface Estate {
-  id: number;
-  name: string;
-  location: string;
-  status: string;
-  statusColor: 'emerald' | 'zinc';
-  price: string;
-  bedrooms: number;
-  bathrooms: number;
-  area: string;
-  garage: number;
-  image: string;
-}
-
 export interface NavLink {
   label: string;
   href: string;
-  hasMegamenu?: boolean;
 }
 
 export interface MegamenuItem {
@@ -36,24 +21,6 @@ export interface HeroSlide {
   subtitle: string;
   primary: { label: string; href: string };
   secondary: { label: string; href: string };
-}
-
-export interface IconCard {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-export interface StepItem {
-  step: string;
-  title: string;
-  description: string;
-}
-
-export interface StatItem {
-  value: string;
-  label: string;
-  description: string;
 }
 
 export interface Testimonial {

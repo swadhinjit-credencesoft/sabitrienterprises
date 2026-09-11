@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import ContactForm from './ContactForm';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import ContactForm from '@/components/forms/ContactForm';
 import {
   CONTACT_PHONE,
   CONTACT_EMAIL,
   CONTACT_ADDRESS,
-} from '../../data/navigation';
-import { IMG } from '../../data/images';
-import styles from './contact.module.scss';
+} from '@/data/navigation';
+import { IMG } from '@/data/images';
+import styles from '@/components/forms/contact.module.scss';
 
 export const metadata: Metadata = {
   title: 'Contact Us',

@@ -1,5 +1,6 @@
-import { HeroSlide, Testimonial, FaqItem } from '../types';
-import { IMG } from './images';
+import { HeroSlide, Testimonial, FaqItem } from '@/types';
+import { IMG } from '@/data/images';
+import { rooms } from '@/data/rooms';
 
 export const homeHeroSlides: HeroSlide[] = [
   {
@@ -68,38 +69,36 @@ export const homeStats = [
   { value: '10', suffix: '+', label: 'Years of Trust' },
   { value: '8', suffix: '', label: 'Heritage Rooms' },
   { value: '25', suffix: '+', label: 'Destinations' },
-  { value: '4', suffix: '', label: 'Business Divisions' },
+  { value: '50', suffix: '+', label: 'Partner Artisans' },
 ];
 
-export const featuredRooms = [
-  {
-    slug: 'jagannath-suite',
-    name: 'Jagannath Heritage Suite',
-    location: 'Grand Road, Puri',
-    price: '₹2,800',
-    capacity: '2 Guests',
-    image: IMG.room1,
-    status: 'Most Loved',
-  },
-  {
-    slug: 'sea-view-double',
-    name: 'Sea Breeze Double Room',
-    location: '5 mins from Puri Beach',
-    price: '₹2,200',
-    capacity: '2 Guests',
-    image: IMG.room2,
-    status: 'Popular',
-  },
-  {
-    slug: 'garden-family-room',
-    name: 'Garden Family Room',
-    location: 'Private courtyard access',
-    price: '₹3,600',
-    capacity: '5 Guests',
-    image: IMG.room3,
-    status: 'Family Pick',
-  },
-];
+const featuredRoomSlugs = [
+  'jagannath-suite',
+  'sea-view-double',
+  'garden-family-room',
+] as const;
+
+const featuredRoomLocations: Record<string, string> = {
+  'jagannath-suite': 'Grand Road, Puri',
+  'sea-view-double': '5 mins from Puri Beach',
+  'garden-family-room': 'Private courtyard access',
+  'budget-standard-room': 'Quiet temple-town lane',
+  'rooftop-terrace-room': 'Direct rooftop terrace access',
+};
+
+export const featuredRooms = featuredRoomSlugs.map((slug) => {
+  const room = rooms.find((r) => r.slug === slug);
+  if (!room) throw new Error(`Featured room not found: ${slug}`);
+  return {
+    slug: room.slug,
+    name: room.name,
+    location: featuredRoomLocations[slug] ?? 'Grand Road, Puri',
+    price: room.price,
+    capacity: `${room.capacity} Guests`,
+    image: room.image,
+    status: room.status,
+  };
+});
 
 export const testimonials: Testimonial[] = [
   {

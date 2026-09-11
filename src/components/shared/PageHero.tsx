@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import styles from './PageHero.module.scss';
+import styles from '@/components/shared/PageHero.module.scss';
 
 interface PageHeroProps {
   title: string;

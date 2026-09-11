@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import PageHero from '../../components/shared/PageHero';
-import GalleryClient from './GalleryClient';
-import { galleryCategories, galleryItems } from '../../data/gallery';
-import { IMG } from '../../data/images';
-import styles from './gallery.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import GalleryClient from '@/components/forms/GalleryClient';
+import { galleryCategories, galleryItems } from '@/data/gallery';
+import { IMG } from '@/data/images';
+import styles from '@/components/forms/gallery.module.scss';
 
 export const metadata: Metadata = {
   title: 'Gallery',

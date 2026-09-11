@@ -1,5 +1,5 @@
-import { TourPackage, Destination } from '../types';
-import { IMG } from './images';
+import { TourPackage, Destination } from '@/types/index';
+import { IMG } from '@/data/images';
 
 export const tourPackages: TourPackage[] = [
   {

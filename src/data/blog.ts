@@ -1,5 +1,5 @@
-import { BlogPost } from '../types';
-import { IMG } from './images';
+import { BlogPost } from '@/types/index';
+import { IMG } from '@/data/images';
 
 export const blogCategories = ['Puri Guide', 'Temples', 'Travel Tips', 'Crafts & Culture', 'Food', 'Homestay'];
 

@@ -2,16 +2,121 @@
 @use '../styles/reset';
 @use '../styles/typography';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-
-*, *::before, *::after { box-sizing: border-box; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #fafafa;
-  color: #09090b;
-  -webkit-font-smoothing: antialiased;
-  ::selection { background-color: #18181b; color: #ffffff; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  background-color: $color-background;
+  color: $color-foreground;
+  -webkit-font-smoothing: antialiased;
+  ::selection {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background-color: $color-primary;
+  color: $color-white;
+  border-radius: $radius-xl;
+  text-decoration: none;
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
+.error-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+.error-card {
+  max-width: 420px;
+  text-align: center;
+  padding: 3rem 2rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-2xl;
+  background-color: $color-white;
+  color: $color-danger;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    color: $color-muted;
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: $radius-full;
+    background-color: $color-primary;
+    color: $color-white;
+    font: inherit;
+    cursor: pointer;
+  }
+}
+
+.loading-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid $color-border;
+  border-top-color: $color-primary;
+  border-radius: 50%;
+  animation: loading-spin 0.8s linear infinite;
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

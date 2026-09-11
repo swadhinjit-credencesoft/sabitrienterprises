@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Phone, MessageCircle } from 'lucide-react';
 import { CONTACT_PHONE, WHATSAPP_NUMBER } from '@/data/navigation';
-import styles from './CTASection.module.scss';
+import styles from '@/components/shared/CTASection.module.scss';
 
 interface CTASectionProps {
   title?: string;

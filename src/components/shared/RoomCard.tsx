@@ -2,8 +2,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { MapPin } from 'lucide-react';
-import Badge from '../ui/Badge/Badge';
-import styles from '../home/home.module.scss';
+import Badge from '@/components/ui/Badge';
+import styles from '@/components/sections/home.module.scss';
 
 export interface RoomCardItem {
   slug: string;

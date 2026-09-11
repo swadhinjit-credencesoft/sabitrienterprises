@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import PageHero from '../../components/shared/PageHero';
-import SectionHeader from '../../components/shared/SectionHeader';
-import { blogPosts, blogCategories } from '../../data/blog';
-import { IMG } from '../../data/images';
-import styles from './blog.module.scss';
+import PageHero from '@/components/shared/PageHero';
+import SectionHeader from '@/components/shared/SectionHeader';
+import { blogPosts, blogCategories } from '@/data/blog';
+import { IMG } from '@/data/images';
+import styles from '@/app/blog/blog.module.scss';
 
 export const metadata: Metadata = {
   title: 'Travel Journal',
