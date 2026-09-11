@@ -1,4 +1,4 @@
-﻿@use '../../styles/variables' as *;
+@use '../../styles/variables' as *;
 
 .logo {
   display: flex;
@@ -8,10 +8,10 @@
 
 .img {
   width: auto;
-  height: 52px;
+  height: 100px;
   object-fit: contain;
 
   @media (max-width: 480px) {
-    height: 44px;
+    height: 72px;
   }
 }

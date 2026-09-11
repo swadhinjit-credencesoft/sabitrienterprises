@@ -7,8 +7,7 @@
   left: 0;
   width: 100%;
   height: $nav-height;
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
+  background-color: #fefefe;
   border-bottom: 1px solid rgba($color-border, 0.2);
   z-index: 50;
   transition: border-color 300ms ease;
@@ -25,11 +24,8 @@
 }
 
 .logo {
-  height: 24px;
-  img {
-    height: 100%;
-    width: auto;
-  }
+  display: flex;
+  align-items: center;
 }
 
 .desktopLinks {
