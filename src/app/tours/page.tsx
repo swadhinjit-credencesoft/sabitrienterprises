@@ -152,6 +152,7 @@ export default function ToursPage() {
         title="Plan Your Odisha Journey"
         description="Tell us your dates, group size, and interests — we'll craft the perfect itinerary and send you a clear quote."
         primaryLabel="Plan My Trip"
+        primaryHref="/booking?division=tours"
       />
     </main>
   );

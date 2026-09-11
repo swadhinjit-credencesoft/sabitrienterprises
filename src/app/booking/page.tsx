@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Link from 'next/link';
 import {
   ShieldCheck,
@@ -72,7 +73,9 @@ export default function BookingPage() {
         </div>
       </section>
 
-      <BookingClient />
+      <Suspense fallback={null}>
+        <BookingClient />
+      </Suspense>
 
       <section className={styles.policiesNote}>
         <div className={styles.container}>

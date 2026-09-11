@@ -200,6 +200,7 @@ export default function HomestayPage() {
         title="Reserve Your Room in Puri"
         description="Book directly with us for the best rates and personalised care. Our team confirms all bookings personally."
         primaryLabel="Book Your Stay"
+        primaryHref="/booking?division=homestay"
       />
     </main>
   );

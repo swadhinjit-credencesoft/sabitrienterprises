@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import {
   ArrowLeft,
   ArrowRight,
@@ -322,25 +323,33 @@ export default function BookingClient() {
   const jewelleryRef = useRef<HTMLDivElement>(null);
   const craftRef = useRef<HTMLDivElement>(null);
 
+  const searchParams = useSearchParams();
+  const searchKey = searchParams.toString();
+
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(searchKey);
     const roomParam = params.get('room');
     if (roomParam && rooms.some((r) => r.slug === roomParam)) {
       setRoomSlug(roomParam);
+    } else {
+      setRoomSlug(null);
     }
     const tourParam = params.get('tour');
     if (tourParam && tourPackages.some((t) => t.slug === tourParam)) {
       setTourSlug(tourParam);
+    } else {
+      setTourSlug(null);
     }
     const productParam = params.get('product');
-    if (productParam) {
-      if (jewelleryProducts.some((p) => p.slug === productParam)) {
-        setJProductSlug(productParam);
-      }
-      if (handicraftProducts.some((p) => p.slug === productParam)) {
-        setHProductSlug(productParam);
-      }
+    if (jewelleryProducts.some((p) => p.slug === productParam)) {
+      setJProductSlug(productParam);
+    } else {
+      setJProductSlug(null);
+    }
+    if (handicraftProducts.some((p) => p.slug === productParam)) {
+      setHProductSlug(productParam);
+    } else {
+      setHProductSlug(null);
     }
     const target: Record<string, React.RefObject<HTMLDivElement | null>> = {
       homestay: stayRef,
@@ -357,7 +366,7 @@ export default function BookingClient() {
         });
       }, 150);
     }
-  }, []);
+  }, [searchKey]);
 
   const room = rooms.find((r) => r.slug === roomSlug) ?? null;
   const tour = tourPackages.find((t) => t.slug === tourSlug) ?? null;
@@ -474,25 +483,36 @@ export default function BookingClient() {
     ];
     if (staySelected && room) {
       lines.push(
-        'STAY',
+        'HOMESTAY BOOKING',
         `Room: ${room.name}`,
+        `Type: ${room.status}`,
+        `Room: ${room.size} · ${room.beds}`,
+        `Capacity: ${room.capacity} guests`,
         `Check-in: ${checkIn} (12:00 PM)`,
         `Check-out: ${checkOut} (11:00 AM)`,
-        `Nights: ${nights}`,
         `Guests: ${guests}`,
-        `Total: ${formatINR(roomTotal)}`,
-        '',
+        `Nights × Rate: ${nights} × ${formatINR(roomRate)}`,
+        `Subtotal: ${formatINR(roomTotal)}`,
+        `Stay link: ${SITE_URL}/homestay`,
       );
+      if (room.description) lines.push(`Details: ${room.description}`);
+      lines.push('');
     }
     if (tour) {
       lines.push(
         'TOUR PACKAGE',
         `Package: ${tour.name}`,
+        `Type: ${tour.status}`,
         `Duration: ${tour.duration}`,
+        `Rate per person: ${formatINR(tourRate)}`,
         `Travellers: ${travellers}`,
-        `Total: ${formatINR(tourTotal)}`,
+        `Subtotal: ${formatINR(tourTotal)} (${travellers} × ${formatINR(
+          tourRate,
+        )})`,
       );
       if (tourDate) lines.push(`Travel date: ${tourDate}`);
+      lines.push(`Tour link: ${SITE_URL}/tours`);
+      if (tour.description) lines.push(`Details: ${tour.description}`);
       lines.push('');
     }
     if (jProduct) {
@@ -526,15 +546,24 @@ export default function BookingClient() {
       lines.push('');
     }
     if (hProduct) {
+      const hUnitPrice = parsePrice(hProduct.price ?? hProduct.priceFrom);
       lines.push(
-        'HANDICRAFT',
+        'HANDICRAFT ENQUIRY',
         `Product: ${hProduct.name}`,
-        `Craft: ${hProduct.craft}`,
+        `Category: ${hProduct.craft}`,
+        `Type: ${hProduct.category}`,
         `Material: ${hProduct.material}`,
-        `Price from: ${hProduct.priceFrom} × ${hQty}`,
-        `Total: ${formatINR(hTotal)}`,
-        '',
+        `Quantity: ${hQty}`,
+        `Unit Price: ${formatINR(hUnitPrice)}`,
+        `Subtotal: ${formatINR(hUnitPrice * hQty)} (${hQty} × ${formatINR(
+          hUnitPrice,
+        )})`,
+        `Product link: ${SITE_URL}/handicrafts`,
       );
+      if (hProduct.description) {
+        lines.push(`Details: ${hProduct.description}`);
+      }
+      lines.push('');
     }
     lines.push(`ESTIMATED TOTAL: ${formatINR(grandTotal)}`, '');
     lines.push(`Preferred arrival / contact time: ${arrival}`);
