@@ -294,6 +294,8 @@ function ProductDetail({
 export default function BookingClient() {
   const [step, setStep] = useState(0);
 
+  const [activeDivision, setActiveDivision] = useState<string | null>(null);
+
   const [roomSlug, setRoomSlug] = useState<string | null>(null);
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
@@ -358,6 +360,12 @@ export default function BookingClient() {
       handicrafts: craftRef,
     };
     const divParam = params.get('division');
+    const validDivisions = ['homestay', 'tours', 'jewellery', 'handicrafts'];
+    if (divParam && validDivisions.includes(divParam)) {
+      setActiveDivision(divParam);
+    } else {
+      setActiveDivision(null);
+    }
     if (divParam && target[divParam]?.current) {
       setTimeout(() => {
         target[divParam].current?.scrollIntoView({
@@ -652,15 +660,24 @@ export default function BookingClient() {
                 <div className={styles.stepHeading}>
                   <span className={styles.stepCaption}>Step 1</span>
                   <h2 className={styles.stepTitle}>
-                    Choose What You Need
+                    {activeDivision === 'jewellery'
+                      ? 'Enquire About Jewellery'
+                      : activeDivision === 'tours'
+                        ? 'Book Your Tour'
+                        : activeDivision === 'homestay'
+                          ? 'Reserve Your Room'
+                          : activeDivision === 'handicrafts'
+                            ? 'Enquire About Handicrafts'
+                            : 'Choose What You Need'}
                   </h2>
                   <p className={styles.stepDesc}>
-                    Book a room, plan a tour, and pick jewellery or handicrafts
-                    — any combination, all in one request. Select an item to
-                    see its full details.
+                    {activeDivision
+                      ? 'Select an item below, fill your details, and send the enquiry — our team responds within hours.'
+                      : 'Book a room, plan a tour, and pick jewellery or handicrafts — any combination, all in one request. Select an item to see its full details.'}
                   </p>
                 </div>
 
+                {(!activeDivision || activeDivision === 'homestay') && (
                 <div className={styles.divisionSection} ref={stayRef} id="stay">
                   <div className={styles.sectionHead}>
                     <span className={styles.sectionIcon}>
@@ -800,8 +817,10 @@ export default function BookingClient() {
                       </p>
                     )}
                   </div>
-                </div>
+                  </div>
+                )}
 
+                {(!activeDivision || activeDivision === 'tours') && (
                 <div className={styles.divisionSection} ref={tourRef} id="tours">
                   <div className={styles.sectionHead}>
                     <span className={styles.sectionIcon}>
@@ -911,8 +930,10 @@ export default function BookingClient() {
                       </label>
                     </div>
                   )}
-                </div>
+                  </div>
+                )}
 
+                {(!activeDivision || activeDivision === 'jewellery') && (
                 <div
                   className={styles.divisionSection}
                   ref={jewelleryRef}
@@ -1017,8 +1038,10 @@ export default function BookingClient() {
                       </div>
                     </div>
                   )}
-                </div>
+                  </div>
+                )}
 
+                {(!activeDivision || activeDivision === 'handicrafts') && (
                 <div className={styles.divisionSection} ref={craftRef} id="crafts">
                   <div className={styles.sectionHead}>
                     <span className={styles.sectionIcon}>
@@ -1120,6 +1143,8 @@ export default function BookingClient() {
                     </div>
                   )}
                 </div>
+                )}
+
               </div>
             )}
 
