@@ -31,6 +31,7 @@ import { jewelleryCollections } from '@/data/jewellery';
 import { handicraftCategories } from '@/data/handicrafts';
 import { parsePrice, formatINR } from '@/lib/format';
 import { buildWhatsAppLink, buildMailtoLink } from '@/lib/links';
+import { SITE_URL } from '@/lib/constants';
 import styles from '@/components/forms/booking.module.scss';
 
 const today = new Date().toISOString().split('T')[0];
@@ -460,8 +461,11 @@ export default function BookingClient() {
   const goBack = () => setStep((s) => Math.max(s - 1, 0));
 
   const summaryLines = (): string[] => {
+    const isBookingFlow = Boolean(staySelected || tour);
     const lines = [
-      'NEW BOOKING REQUEST — Sabitri Enterprises, Puri',
+      isBookingFlow
+        ? 'NEW BOOKING REQUEST — Sabitri Enterprises, Puri'
+        : 'NEW ENQUIRY — Sabitri Enterprises, Puri',
       '----------------------------------',
       `Name: ${name.trim() || '—'}`,
       `Phone: ${phone.trim() || '—'}`,
@@ -492,15 +496,34 @@ export default function BookingClient() {
       lines.push('');
     }
     if (jProduct) {
+      const unitPrice = parsePrice(jProduct.price ?? jProduct.priceFrom);
+      const mrpPrice = parsePrice(jProduct.mrp ?? '');
       lines.push(
-        'JEWELLERY',
+        'JEWELLERY ENQUIRY',
         `Product: ${jProduct.name}`,
         `Collection: ${jProduct.collection}`,
+        `Type: ${jProduct.category}`,
         `Material: ${jProduct.material}`,
-        `Price from: ${jProduct.priceFrom} × ${jQty}`,
-        `Total: ${formatINR(jTotal)}`,
-        '',
+        `Quantity: ${jQty}`,
+        `Unit Price: ${formatINR(unitPrice)}`,
       );
+      if (mrpPrice > unitPrice) {
+        lines.push(
+          `MRP: ${formatINR(mrpPrice)} — Save ${formatINR(
+            mrpPrice - unitPrice,
+          )} per piece`,
+        );
+      }
+      lines.push(
+        `Subtotal: ${formatINR(unitPrice * jQty)} (${jQty} × ${formatINR(
+          unitPrice,
+        )})`,
+        `Product link: ${SITE_URL}/jewellery`,
+      );
+      if (jProduct.description) {
+        lines.push(`Details: ${jProduct.description}`);
+      }
+      lines.push('');
     }
     if (hProduct) {
       lines.push(
@@ -518,7 +541,9 @@ export default function BookingClient() {
     if (requests.trim()) lines.push(`Special requests: ${requests.trim()}`);
     lines.push(
       '',
-      'Please confirm availability and share the secure payment link. Thank you!',
+      isBookingFlow
+        ? 'Please confirm availability and share the secure payment link. Thank you!'
+        : 'Please confirm availability and let us know the next steps. Thank you!',
       '',
       'Sabitri Enterprises | Grand Road, Puri, Odisha',
     );
