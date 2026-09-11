@@ -23,7 +23,7 @@ export default function HandicraftsPage() {
         image={IMG.art}
         video="https://assets.mixkit.co/videos/5177/5177-720.mp4"
         badge="Crafted by Artisans"
-      />
+        />
 
       <section className={styles.section}>
         <div className={styles.container}>

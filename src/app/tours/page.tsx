@@ -24,7 +24,7 @@ export default function ToursPage() {
         image={IMG.beach1}
         video="https://assets.mixkit.co/videos/42368/42368-720.mp4"
         badge="Explore with Us"
-      />
+        />
 
       {/* Destinations */}
       <section className={styles.section}>

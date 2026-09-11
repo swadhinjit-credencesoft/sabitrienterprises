@@ -26,7 +26,7 @@ export default function JewelleryPage() {
         image={IMG.silver1}
         video={JEWELLERY_VIDEO}
         badge="Adorn with Heritage"
-      />
+        />
 
       <section className={styles.section}>
         <div className={styles.container}>

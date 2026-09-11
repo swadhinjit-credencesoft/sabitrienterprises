@@ -24,7 +24,7 @@ export default function HomestayPage() {
         image={IMG.heroStay}
         video="https://bookonelocal.in/cdn/VID-20251123-WA0003.mp4"
         badge="Stay with Heritage"
-      />
+        />
 
       {/* Overview */}
       <section className={styles.section}>
