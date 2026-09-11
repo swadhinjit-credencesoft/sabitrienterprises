@@ -1,12 +1,11 @@
-'use client';
+﻿'use client';
 import React from 'react';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store/index';
 import { setMobileMenuOpen } from '@/store/slices/uiSlice';
-import { Menu } from 'lucide-react';
+import { Menu, CalendarDays } from 'lucide-react';
 import Logo from '@/components/shared/Logo';
-import Button from '@/components/ui/Button';
 import MobileMenu from '@/components/layout/MobileMenu';
 import { navLinks } from '@/data/navigation';
 import styles from '@/components/layout/Navigation.module.scss';
@@ -35,14 +34,14 @@ export default function Navigation() {
           </div>
 
           <div className={styles.actions}>
-            <div className={styles.desktopOnly}>
-              <Link href="/booking">
-                <Button>Book a Stay</Button>
-              </Link>
-            </div>
+            <Link href="/booking" className={styles.planBtn}>
+              <CalendarDays size={16} />
+              Plan Your Visit
+            </Link>
             <button
               className={styles.mobileToggle}
               onClick={() => dispatch(setMobileMenuOpen(true))}
+              aria-label="Open menu"
             >
               <Menu size={24} />
             </button>

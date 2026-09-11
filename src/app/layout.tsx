@@ -1,5 +1,5 @@
-import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+﻿import type { Metadata, Viewport } from 'next';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { Providers } from '@/app/providers';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
@@ -13,6 +13,12 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-serif',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -20,7 +26,7 @@ export const metadata: Metadata = {
     template: '%s | Sabitri Enterprises',
   },
   description:
-    'Sabitri Enterprises, Puri — a family-run group offering heritage homestay near Jagannath Temple, handcrafted jewellery, Odisha tour packages, and authentic handicrafts. Crafting experiences, honouring heritage.',
+    'Sabitri Enterprises, Puri — a luxury family-run heritage group offering heritage homestay near Jagannath Temple, handcrafted jewellery, Odisha tour packages, and authentic handicrafts. Crafting experiences, honouring heritage.',
   robots: {
     index: true,
     follow: true,
@@ -31,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sabitri Enterprises',
     description:
-      'Homestay, jewellery, tours & travel, and handicrafts from the heart of Puri, Odisha.',
+      'Luxury homestay, jewellery, tours & travel, and handicrafts from the heart of Puri, Odisha.',
     url: SITE_URL,
     siteName: COMPANY_NAME,
     type: 'website',
@@ -42,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sabitri Enterprises',
     description:
-      'Homestay, jewellery, tours & travel, and handicrafts from the heart of Puri, Odisha.',
+      'Luxury homestay, jewellery, tours & travel, and handicrafts from the heart of Puri, Odisha.',
   },
   icons: {
     icon: '/favicon.svg',
@@ -60,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body suppressHydrationWarning>
         <Providers>
           <a href="#main" className="skip-link">
@@ -72,7 +78,12 @@ export default function RootLayout({
         </Providers>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': getJsonLd() }) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': getJsonLd(),
+            }),
+          }}
         />
       </body>
     </html>

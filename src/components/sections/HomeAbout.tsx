@@ -1,10 +1,15 @@
 ﻿'use client';
 import React from 'react';
-import Link from 'next/link';
-import { Check, ArrowRight } from 'lucide-react';
-import { companyProfile } from '@/data/company';
+import { Landmark, Waves, Users, IndianRupee } from 'lucide-react';
 import { IMG } from '@/data/images';
 import styles from '@/components/sections/home.module.scss';
+
+const aboutFeatures = [
+  { icon: Landmark, label: 'Steps from Jagannath Temple' },
+  { icon: Waves, label: 'Close to Puri Beach' },
+  { icon: Users, label: 'Supporting Local Artisans' },
+  { icon: IndianRupee, label: 'Transparent Pricing' },
+];
 
 export default function HomeAbout() {
   return (
@@ -12,25 +17,35 @@ export default function HomeAbout() {
       <div className={styles.aboutContainer}>
         <div className={styles.aboutGrid}>
           <div className={styles.aboutImageWrap}>
-            <img src={IMG.house1} alt="Sabitri Homestay on Grand Road, Puri" />
+            <img
+              src={IMG.beach2}
+              alt="Puri Beach and Temple Skyline at Sunset"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
-          <div>
-            <span className={styles.aboutCaption}>Our Story</span>
+          <div className={styles.aboutContent}>
+            <span className={styles.aboutCaption}>OUR STORY</span>
             <h2 className={styles.aboutTitle}>
               Rooted in Puri, Growing with Heritage
             </h2>
-            <p className={styles.aboutText}>{companyProfile.story[0]}</p>
-            <ul className={styles.aboutList}>
-              {companyProfile.whyChooseUs.slice(0, 4).map((item) => (
-                <li key={item}>
-                  <Check size={18} />
-                  {item}
-                </li>
+            <p className={styles.aboutText}>
+              For generations, our family has welcomed travellers, celebrated
+              traditions, and supported local artisans. From our heritage homestay
+              steps away from Jagannath Temple and Puri Beach to our handcrafted
+              jewellery, curated tours, and authentic crafts – everything we do is
+              guided by trust, transparency, and the spirit of Odisha.
+            </p>
+            <div className={styles.aboutBadges}>
+              {aboutFeatures.map(({ icon: Icon, label }) => (
+                <div key={label} className={styles.aboutBadge}>
+                  <div className={styles.aboutBadgeIcon}>
+                    <Icon size={18} />
+                  </div>
+                  <span>{label}</span>
+                </div>
               ))}
-            </ul>
-            <Link href="/about" className={styles.aboutLink}>
-              Read Our Full Story <ArrowRight size={16} />
-            </Link>
+            </div>
           </div>
         </div>
       </div>

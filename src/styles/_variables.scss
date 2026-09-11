@@ -1,21 +1,34 @@
-// _variables.scss
-$color-background: #fafafa;
-$color-foreground: #09090b;
-$color-primary: #18181b;       // zinc-900
-$color-accent: #10b981;        // emerald-500
-$color-muted: #71717a;         // zinc-500
-$color-border: #e4e4e7;        // zinc-200
+﻿// _variables.scss
+$color-background: #ffffff;
+$color-foreground: #121d33;    // deep rich royal navy
+$color-primary: #121d33;       // deep rich royal navy
+$color-primary-light: #1b2b4c;
+$color-accent: #c59a3d;        // warm royal gold
+$color-accent-hover: #b3882e;  // deeper gold
+$color-accent-light: #faf5ea;  // soft luxury gold tint
+$color-muted: #556275;         // crisp readable luxury gray
+$color-border: #eae6df;        // subtle warm border
+$color-border-gold: rgba(197, 154, 61, 0.35);
 $color-danger: #dc2626;        // red-600
 $color-white: #ffffff;
-$color-dark: #09090b;          // zinc-950
+$color-dark: #0a1120;          // deepest luxury navy
+$color-whatsapp: #25d366;      // whatsapp green
 
-$container-max-width: 1280px;
+// Luxury Gradients
+$gradient-gold: linear-gradient(135deg, #c59a3d 0%, #dfb758 50%, #b3882e 100%);
+$gradient-gold-subtle: linear-gradient(135deg, rgba(197, 154, 61, 0.12) 0%, rgba(223, 183, 88, 0.04) 100%);
+$gradient-navy: linear-gradient(135deg, #0c1527 0%, #162645 100%);
+$gradient-card: linear-gradient(180deg, #ffffff 0%, #fdfcf9 100%);
+
+$container-max-width: 1240px;
 $container-padding: 24px;
-$section-padding-y-desktop: 128px;
-$section-padding-y-mobile: 80px;
+$section-padding-y-desktop: 76px;
+$section-padding-y-mobile: 52px;
 
-$radius-xl: 16px;
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-xl: 14px;
 $radius-full: 999px;
-$radius-2xl: 32px;
+$radius-2xl: 24px;
 
-$nav-height: 110px;
+$nav-height: 90px;

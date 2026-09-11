@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+﻿@use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
 .nav {
@@ -7,13 +7,14 @@
   left: 0;
   width: 100%;
   height: $nav-height;
-  background-color: #fefefe;
-  border-bottom: 1px solid rgba($color-border, 0.2);
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(234, 230, 223, 0.85);
   z-index: 50;
-  transition: border-color 300ms ease;
-  
+  transition: all 250ms ease;
+
   &.scrolled {
-    border-bottom-color: rgba($color-border, 0.8);
+    box-shadow: 0 4px 20px rgba(18, 29, 51, 0.06);
+    border-bottom-color: rgba(197, 154, 61, 0.25);
   }
 }
 
@@ -31,35 +32,78 @@
 .desktopLinks {
   display: none;
   align-items: center;
-  gap: 28px;
+  gap: 6px;
   height: 100%;
-  
+
   @include respond-to('md') {
     display: flex;
   }
 }
 
 .link {
+  position: relative;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: $color-foreground;
+  font-weight: 600;
+  color: $color-primary;
   white-space: nowrap;
-  transition: color 300ms ease;
-  
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: color 200ms ease;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    background: $gradient-gold;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 250ms ease;
+  }
+
   &:hover {
-    color: $color-muted;
+    color: $color-accent;
+
+    &::after {
+      transform: scaleX(1);
+    }
   }
 }
 
 .actions {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
-.desktopOnly {
+.planBtn {
   display: none;
+  align-items: center;
+  gap: 8px;
+  background-color: $color-primary;
+  color: $color-white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 14px rgba(18, 29, 51, 0.15);
+  transition: all 200ms ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $color-dark;
+    border-color: rgba(197, 154, 61, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(18, 29, 51, 0.22);
+  }
+
   @include respond-to('md') {
-    display: block;
+    display: inline-flex;
   }
 }
 
@@ -67,8 +111,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-foreground;
-  
+  color: $color-primary;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: rgba(18, 29, 51, 0.05);
+  }
+
   @include respond-to('md') {
     display: none;
   }
