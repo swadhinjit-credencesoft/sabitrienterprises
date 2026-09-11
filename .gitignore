@@ -1,0 +1,10 @@
+﻿node_modules/
+.next/
+out/
+.tmp/
+.freebuff/
+dev.log
+*.tsbuildinfo
+.env
+.env.local
+.env.production

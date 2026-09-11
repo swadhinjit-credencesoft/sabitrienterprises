@@ -1,0 +1,200 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.sectionLight {
+  @include section-padding;
+  background-color: $color-white;
+}
+
+.container {
+  @include container;
+}
+
+.caption {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.title {
+  color: $color-foreground;
+  margin-bottom: 16px;
+}
+
+.text {
+  color: $color-muted;
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+
+/* Overview */
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.overviewImageWrap {
+  border-radius: $radius-2xl;
+  overflow: hidden;
+
+  img,
+  video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+}
+
+.highlightList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 8px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $color-foreground;
+    font-size: 0.9375rem;
+  }
+
+  svg {
+    color: $color-accent;
+    flex-shrink: 0;
+  }
+}
+
+/* Rooms */
+.roomGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Amenities */
+.amenityGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.amenityItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: $color-foreground;
+  font-weight: 500;
+  font-size: 0.875rem;
+
+  svg {
+    color: $color-accent;
+    flex-shrink: 0;
+  }
+}
+
+/* Booking info */
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.infoCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 28px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.infoIcon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba($color-foreground, 0.05);
+  border-radius: 12px;
+  @include flex-center;
+  margin-bottom: 20px;
+
+  svg {
+    color: $color-foreground;
+  }
+}
+
+.infoTitle {
+  color: $color-foreground;
+  margin-bottom: 10px;
+  font-size: 1.0625rem;
+}
+
+.infoText {
+  color: $color-muted;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.policyNote {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: $color-background;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  text-align: center;
+  color: $color-muted;
+  font-size: 0.875rem;
+
+  a {
+    color: $color-foreground;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}

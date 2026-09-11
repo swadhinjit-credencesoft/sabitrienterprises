@@ -1,0 +1,67 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.card {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+
+  &:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: $color-foreground;
+}
+
+.cardDesc {
+  color: $color-muted;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $color-foreground;
+
+  &:hover {
+    color: $color-accent;
+  }
+}

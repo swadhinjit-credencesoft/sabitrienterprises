@@ -1,0 +1,83 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.card {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+
+  &:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.quoteIcon {
+  color: rgba($color-accent, 0.25);
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+}
+
+.starFilled {
+  fill: $color-accent;
+  color: $color-accent;
+}
+
+.starEmpty {
+  color: $color-border;
+}
+
+.text {
+  color: $color-muted;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  flex: 1;
+}
+
+.author {
+  padding-top: 18px;
+  border-top: 1px solid $color-border;
+}
+
+.name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: $color-foreground;
+}
+
+.meta {
+  font-size: 0.8125rem;
+  color: $color-muted;
+  margin-top: 2px;
+}

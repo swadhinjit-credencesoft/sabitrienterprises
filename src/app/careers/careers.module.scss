@@ -1,0 +1,199 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.sectionLight {
+  @include section-padding;
+  background-color: $color-white;
+}
+
+.container {
+  @include container;
+}
+
+/* Jobs */
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.jobCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 32px;
+  transition: box-shadow 300ms ease;
+
+  &:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.jobHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.jobDivision {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-accent;
+  margin-bottom: 6px;
+}
+
+.jobTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: $color-foreground;
+}
+
+.jobMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.jobMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  color: $color-muted;
+
+  svg {
+    color: $color-accent;
+  }
+}
+
+.jobDesc {
+  color: $color-muted;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.jobColumns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.jobSubTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $color-foreground;
+  margin-bottom: 12px;
+}
+
+.jobListItems {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: $color-muted;
+    line-height: 1.5;
+  }
+
+  svg {
+    color: $color-accent;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+}
+
+/* Perks */
+.perksGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 72px;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.perkItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: $color-background;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: $color-foreground;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.perkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba($color-accent, 0.1);
+  color: $color-accent;
+}
+
+/* Apply steps */
+.applyList {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.applyStep {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid $color-border;
+
+  &:first-child {
+    border-top: 1px solid $color-border;
+  }
+}
+
+.applyNumber {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $color-accent;
+  flex-shrink: 0;
+  width: 40px;
+}
+
+.applyText {
+  color: $color-foreground;
+  font-size: 0.9375rem;
+}

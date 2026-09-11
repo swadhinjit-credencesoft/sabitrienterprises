@@ -1,0 +1,79 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $nav-height;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba($color-border, 0.2);
+  z-index: 50;
+  transition: border-color 300ms ease;
+  
+  &.scrolled {
+    border-bottom-color: rgba($color-border, 0.8);
+  }
+}
+
+.container {
+  @include container;
+  @include flex-between;
+  height: 100%;
+}
+
+.logo {
+  height: 24px;
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.desktopLinks {
+  display: none;
+  align-items: center;
+  gap: 28px;
+  height: 100%;
+  
+  @include respond-to('md') {
+    display: flex;
+  }
+}
+
+.link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $color-foreground;
+  white-space: nowrap;
+  transition: color 300ms ease;
+  
+  &:hover {
+    color: $color-muted;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.desktopOnly {
+  display: none;
+  @include respond-to('md') {
+    display: block;
+  }
+}
+
+.mobileToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-foreground;
+  
+  @include respond-to('md') {
+    display: none;
+  }
+}

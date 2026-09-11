@@ -1,0 +1,103 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.container {
+  @include container;
+}
+
+.card {
+  background-color: $color-primary;
+  border-radius: $radius-2xl;
+  padding: 48px 24px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  @include respond-to('md') {
+    padding: 72px 64px;
+  }
+}
+
+.blur1,
+.blur2 {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blur1 {
+  top: -120px;
+  right: -120px;
+}
+
+.blur2 {
+  bottom: -120px;
+  left: -120px;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.title {
+  color: $color-white;
+  margin-bottom: 16px;
+}
+
+.desc {
+  color: rgba($color-white, 0.7);
+  margin-bottom: 40px;
+  font-size: 1.0625rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.primary {
+  background-color: $color-white;
+  color: $color-primary;
+  padding: 14px 28px;
+  border-radius: $radius-full;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: rgba($color-white, 0.9);
+  }
+}
+
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba($color-white, 0.08);
+  color: $color-white;
+  border: 1px solid rgba($color-white, 0.2);
+  padding: 14px 24px;
+  border-radius: $radius-full;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: rgba($color-white, 0.16);
+  }
+}

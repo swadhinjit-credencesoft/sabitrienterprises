@@ -1,0 +1,293 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.sectionLight {
+  @include section-padding;
+  background-color: $color-white;
+}
+
+.container {
+  @include container;
+}
+
+.caption {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.title {
+  color: $color-foreground;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: $color-muted;
+  font-size: 0.9375rem;
+  margin-bottom: 24px;
+}
+
+/* Mission & Vision */
+.mvGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mvCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 36px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.mvIcon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba($color-foreground, 0.05);
+  border-radius: 12px;
+  @include flex-center;
+  margin-bottom: 20px;
+
+  svg {
+    color: $color-foreground;
+  }
+}
+
+.mvTitle {
+  color: $color-foreground;
+  margin-bottom: 12px;
+}
+
+.mvText {
+  color: $color-muted;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+/* Story */
+.story {
+  max-width: 760px;
+
+  .storyText {
+    color: $color-muted;
+    margin-bottom: 20px;
+    line-height: 1.75;
+  }
+}
+
+/* Chairman */
+.chairmanGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1.6fr;
+  }
+}
+
+.chairmanImageWrap {
+  border-radius: $radius-2xl;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+}
+
+.chairmanText {
+  color: $color-muted;
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+
+/* Values */
+.valuesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.valueCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 28px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+
+    .valueIcon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.valueIcon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba($color-foreground, 0.05);
+  border-radius: 12px;
+  @include flex-center;
+  margin-bottom: 20px;
+  transition: transform 300ms ease;
+
+  svg {
+    color: $color-foreground;
+  }
+}
+
+.valueTitle {
+  color: $color-foreground;
+  margin-bottom: 10px;
+}
+
+.valueDesc {
+  color: $color-muted;
+  font-size: 0.875rem;
+}
+
+/* Timeline */
+.timeline {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $color-border;
+
+    @include respond-to('sm') {
+      left: 16px;
+    }
+  }
+}
+
+.timelineItem {
+  display: flex;
+  gap: 24px;
+  padding-bottom: 40px;
+  position: relative;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timelineMarker {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $color-white;
+  border: 1px solid $color-accent;
+  @include flex-center;
+  position: relative;
+  z-index: 1;
+  margin-top: 4px;
+
+  @include respond-to('sm') {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.timelineYear {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: $color-accent;
+  text-align: center;
+}
+
+.timelineContent {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 24px;
+  flex: 1;
+}
+
+.timelineTitle {
+  color: $color-foreground;
+  margin-bottom: 8px;
+}
+
+.timelineDesc {
+  color: $color-muted;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Why list */
+.whyList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.whyItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: $color-background;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: $color-foreground;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.whyCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba($color-accent, 0.1);
+  color: $color-accent;
+}

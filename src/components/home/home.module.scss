@@ -1,0 +1,784 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  width: 100%;
+  overflow: hidden;
+  background-color: $color-primary;
+  display: flex;
+  align-items: flex-end;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s ease;
+}
+
+.visible {
+  opacity: 0.45;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    $color-primary 0%,
+    rgba($color-primary, 0.5) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.heroContainer {
+  @include container;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-bottom: 120px;
+}
+
+.heroContent {
+  max-width: 800px;
+
+  > * {
+    opacity: 0;
+  }
+}
+
+.heroBadge {
+  margin-bottom: 24px;
+}
+
+.heroTitle {
+  color: $color-white;
+  margin-bottom: 24px;
+}
+
+.heroSubtitle {
+  color: rgba($color-white, 0.75);
+  max-width: 520px;
+  font-size: 1.125rem;
+  margin-bottom: 40px;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.heroBtnPrimary {
+  background-color: $color-white;
+  color: $color-primary;
+
+  &:hover {
+    background-color: rgba($color-white, 0.9);
+  }
+}
+
+.sliderControls {
+  position: absolute;
+  bottom: 40px;
+  right: $container-padding;
+  z-index: 10;
+  width: 280px;
+
+  @include respond-to('md') {
+    right: calc(50% - ($container-max-width / 2) + $container-padding);
+    width: 320px;
+  }
+}
+
+.sliderTrack {
+  width: 100%;
+  height: 2px;
+  background-color: rgba($color-white, 0.2);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.sliderProgress {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: $color-accent;
+}
+
+.indicators {
+  display: flex;
+  justify-content: space-between;
+}
+
+.indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 4px;
+  color: rgba($color-white, 0.5);
+  transition: color 300ms ease;
+
+  &:hover,
+  &.active {
+    color: $color-white;
+  }
+}
+
+.index {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: none;
+
+  @include respond-to('md') {
+    display: block;
+  }
+}
+
+/* ============ DIVISIONS ============ */
+.divisions {
+  @include section-padding;
+  background-color: $color-white;
+}
+
+.divContainer {
+  @include container;
+}
+
+.divGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.divCard {
+  position: relative;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  display: block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba($color-primary, 0.92) 0%,
+      rgba($color-primary, 0.15) 60%,
+      rgba($color-primary, 0) 100%
+    );
+    transition: opacity 300ms ease;
+  }
+
+  &:hover {
+    .divImage {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.divImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms ease;
+}
+
+.divBody {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+}
+
+.divShort {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent;
+  margin-bottom: 8px;
+}
+
+.divName {
+  color: $color-white;
+  margin-bottom: 8px;
+}
+
+.divTagline {
+  color: rgba($color-white, 0.75);
+  font-size: 0.875rem;
+}
+
+.divArrow {
+  margin-top: 14px;
+  color: $color-white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============ ABOUT ============ */
+.about {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.aboutContainer {
+  @include container;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.aboutImageWrap {
+  border-radius: $radius-2xl;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+}
+
+.aboutCaption {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.aboutTitle {
+  color: $color-foreground;
+  margin-bottom: 20px;
+}
+
+.aboutText {
+  color: $color-muted;
+  margin-bottom: 24px;
+}
+
+.aboutList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+
+  li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: $color-foreground;
+    font-size: 0.9375rem;
+  }
+
+  svg {
+    color: $color-accent;
+    flex-shrink: 0;
+  }
+}
+
+.aboutLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: $color-foreground;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ============ ROOMS ============ */
+.rooms {
+  @include section-padding;
+  background-color: $color-white;
+}
+
+.roomsContainer {
+  @include container;
+}
+
+.roomsHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.roomCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  display: block;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+
+  &:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+
+    .roomImage {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.roomImageWrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.roomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms ease;
+}
+
+.roomBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+}
+
+.roomBody {
+  padding: 24px;
+}
+
+.roomName {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: $color-foreground;
+  margin-bottom: 6px;
+}
+
+.roomLocation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: $color-muted;
+  margin-bottom: 20px;
+
+  svg {
+    color: $color-accent;
+  }
+}
+
+.roomMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid $color-border;
+}
+
+.roomPrice {
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: $color-foreground;
+}
+
+.roomStatus {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $color-accent;
+}
+
+/* ============ TOURS ============ */
+.tours {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.toursContainer {
+  @include container;
+}
+
+.tourGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.tourCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+
+  &:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+}
+
+.tourImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.tourBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tourBadge {
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.tourName {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: $color-foreground;
+  margin-bottom: 6px;
+}
+
+.tourDuration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  color: $color-muted;
+  margin-bottom: 14px;
+
+  svg {
+    color: $color-accent;
+  }
+}
+
+.tourDesc {
+  color: $color-muted;
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.tourFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid $color-border;
+}
+
+.tourPrice {
+  font-weight: 500;
+  color: $color-foreground;
+  font-size: 0.9375rem;
+}
+
+.tourLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $color-foreground;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+/* ============ WHY US ============ */
+.whyUs {
+  @include section-padding;
+  background-color: $color-white;
+}
+
+.whyUsContainer {
+  @include container;
+}
+
+.whyUsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.whyCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 32px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+
+    .whyIcon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.whyIcon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba($color-foreground, 0.05);
+  border-radius: 12px;
+  @include flex-center;
+  margin-bottom: 24px;
+  transition: transform 300ms ease;
+
+  svg {
+    color: $color-foreground;
+  }
+}
+
+.whyTitle {
+  color: $color-foreground;
+  margin-bottom: 12px;
+}
+
+.whyDesc {
+  color: $color-muted;
+  font-size: 0.875rem;
+}
+
+/* ============ STATS ============ */
+.stats {
+  @include section-padding;
+  background-color: $color-primary;
+  position: relative;
+  overflow: hidden;
+}
+
+.statsBg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 255, 255, 0.05),
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.statsContainer {
+  @include container;
+  position: relative;
+  z-index: 1;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0;
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @include respond-to('lg') {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 32px;
+    align-items: flex-start;
+    text-align: left;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+.statValue {
+  font-size: 3rem;
+  font-weight: 500;
+  color: $color-white;
+  margin-bottom: 12px;
+  line-height: 1;
+
+  @include respond-to('xl') {
+    font-size: 3.5rem;
+  }
+}
+
+.statLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba($color-white, 0.8);
+  margin-bottom: 8px;
+}
+
+.statDesc {
+  font-size: 0.875rem;
+  color: rgba($color-white, 0.5);
+}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.testiContainer {
+  @include container;
+}
+
+.testiGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.testiCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.testiStars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+
+  svg {
+    color: $color-accent;
+    fill: $color-accent;
+  }
+}
+
+.testiText {
+  color: $color-foreground;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.testiName {
+  font-weight: 500;
+  color: $color-foreground;
+  margin-bottom: 2px;
+}
+
+.testiMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: $color-muted;
+}
+
+.testiService {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $color-accent;
+}

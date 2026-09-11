@@ -1,0 +1,135 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.sectionLight {
+  @include section-padding;
+  background-color: $color-white;
+}
+
+.container {
+  @include container;
+}
+
+.list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.item {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  transition: border-color 200ms ease;
+
+  &:hover {
+    border-color: rgba($color-accent, 0.4);
+  }
+}
+
+.itemOpen {
+  border-color: rgba($color-accent, 0.6);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: $color-foreground;
+  font-family: inherit;
+}
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba($color-foreground, 0.05);
+  color: $color-muted;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+  background-color: $color-accent;
+  color: $color-white;
+}
+
+.answer {
+  padding: 0 24px 22px;
+  color: $color-muted;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.helpCard {
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-2xl;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.helpTitle {
+  font-size: 1.25rem;
+  color: $color-foreground;
+}
+
+.helpText {
+  color: $color-muted;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.helpBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 14px 28px;
+  border-radius: $radius-full;
+  background-color: $color-foreground;
+  color: $color-white;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: #1f2937;
+  }
+}
+
+.helpLink {
+  font-size: 0.8125rem;
+  color: $color-muted;
+
+  &:hover {
+    color: $color-foreground;
+  }
+}

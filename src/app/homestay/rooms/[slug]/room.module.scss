@@ -1,0 +1,217 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.hero {
+  background-color: $color-primary;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 70vh;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.heroImage {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 340px;
+  }
+}
+
+.heroContent {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 48px;
+
+  @include respond-to('lg') {
+    padding-left: 0;
+  }
+}
+
+.badge {
+  align-self: flex-start;
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-accent;
+  background-color: rgba($color-white, 0.08);
+  border: 1px solid rgba($color-white, 0.15);
+  padding: 6px 12px;
+  border-radius: $radius-full;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: $color-white;
+  margin-bottom: 24px;
+}
+
+.specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.spec {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba($color-white, 0.8);
+  font-size: 0.875rem;
+
+  svg {
+    color: $color-accent;
+  }
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.price {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: $color-white;
+  line-height: 1;
+}
+
+.perNight {
+  color: rgba($color-white, 0.6);
+  font-size: 0.875rem;
+}
+
+.bookBtn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: $color-white;
+  color: $color-primary;
+  padding: 14px 28px;
+  border-radius: $radius-full;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: rgba($color-white, 0.9);
+  }
+}
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.sectionLight {
+  @include section-padding;
+  background-color: $color-white;
+}
+
+.container {
+  @include container;
+}
+
+.caption {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.subTitle {
+  color: $color-foreground;
+  margin-bottom: 20px;
+}
+
+.text {
+  color: $color-muted;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.highlights,
+.amenities {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: $color-foreground;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  svg {
+    color: $color-accent;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+}
+
+.otherTitle {
+  color: $color-foreground;
+  margin-bottom: 32px;
+}
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.missing {
+  min-height: 60vh;
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-start;
+
+  h1 {
+    color: $color-foreground;
+  }
+
+  a {
+    color: $color-accent;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}

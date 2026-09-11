@@ -1,0 +1,231 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-padding;
+  background-color: $color-background;
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+/* Info column */
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 20px;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+
+  &:hover {
+    box-shadow: 0 15px 40px -12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba($color-foreground, 0.05);
+  color: $color-foreground;
+
+  svg {
+    stroke-width: 1.75;
+  }
+}
+
+.cardBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: $color-foreground;
+  margin-bottom: 4px;
+}
+
+.cardLine {
+  font-size: 0.8125rem;
+  color: $color-muted;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.cardAction {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: $color-accent;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Form column */
+.formCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-2xl;
+  padding: 40px 32px;
+
+  @include respond-to('md') {
+    padding: 48px;
+  }
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  color: $color-foreground;
+  margin-bottom: 8px;
+}
+
+.formIntro {
+  color: $color-muted;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $color-foreground;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid $color-border;
+    border-radius: 10px;
+    background-color: $color-background;
+    color: $color-foreground;
+    font-size: 0.875rem;
+    font-family: inherit;
+    transition: border-color 200ms ease;
+
+    &::placeholder {
+      color: $color-muted;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include respond-to('sm') {
+    flex-direction: row;
+  }
+}
+
+.whatsappBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: $radius-full;
+  background-color: $color-foreground;
+  color: $color-white;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: #1f2937;
+  }
+}
+
+.emailBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  background-color: $color-white;
+  color: $color-foreground;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 200ms ease;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+}
+
+.success {
+  font-size: 0.8125rem;
+  color: $color-accent;
+  line-height: 1.5;
+}
