@@ -1,13 +1,13 @@
-﻿@use '../../styles/variables' as *;
+@use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-/* ============ LUXURY SECTION ORNAMENTS ============ */
+/* ============ SECTION DIVIDER TITLE ============ */
 .sectionTitleRow {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
   text-align: center;
 }
 
@@ -28,11 +28,10 @@
 
 .titleDiamond {
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: $gradient-gold;
+  width: 5px;
+  height: 5px;
+  background-color: $color-accent;
   transform: rotate(45deg);
-  box-shadow: 0 0 6px rgba(197, 154, 61, 0.4);
 }
 
 .sectionHeading {
@@ -43,48 +42,32 @@
   letter-spacing: -0.01em;
 
   @include respond-to('md') {
-    font-size: 1.6rem;
+    font-size: 1.55rem;
   }
 }
 
-/* ============ HERO SECTION ============ */
+/* ============ HERO ============ */
 .hero {
   position: relative;
   width: 100%;
-  padding-top: calc(#{$nav-height} + 36px);
-  padding-bottom: 60px;
+  padding-top: calc(#{$nav-height} + 32px);
+  padding-bottom: 56px;
   background: radial-gradient(circle at 10% 25%, #ffffff 0%, #fdfbf7 50%, #f6f1e6 100%);
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 36px;
   align-items: center;
 
   @include container;
 
   @include respond-to('lg') {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 44px;
-    padding-top: calc(#{$nav-height} + 44px);
-    padding-bottom: 68px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    padding-top: calc(#{$nav-height} + 40px);
+    padding-bottom: 64px;
     min-height: calc(88vh - #{$nav-height});
   }
-}
-
-.heroWatermark {
-  position: absolute;
-  top: 5%;
-  left: -8%;
-  width: 420px;
-  height: 420px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.55;
-}
-
-.watermarkSvg {
-  width: 100%;
-  height: 100%;
 }
 
 .heroLeft {
@@ -95,33 +78,17 @@
   z-index: 2;
 }
 
-.heroEyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: $color-accent;
-  margin-bottom: 14px;
-  padding: 4px 12px;
-  background: $color-accent-light;
-  border-radius: 20px;
-  border: 1px solid rgba(197, 154, 61, 0.2);
-}
-
 .heroTitle {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 2.45rem;
+  font-size: 2.35rem;
   font-weight: 800;
   color: $color-primary;
-  line-height: 1.16;
+  line-height: 1.18;
   margin-bottom: 18px;
   letter-spacing: -0.025em;
 
   @include respond-to('md') {
-    font-size: 3.45rem;
+    font-size: 3.35rem;
   }
 }
 
@@ -129,17 +96,14 @@
   color: $color-accent;
   font-style: italic;
   font-weight: 700;
-  background: $gradient-gold;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .heroSubtitle {
-  font-size: 1.05rem;
+  font-size: 1.025rem;
   line-height: 1.7;
   color: $color-muted;
   max-width: 520px;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
 .heroActions {
@@ -147,7 +111,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 
 .heroBtnPrimary {
@@ -156,19 +120,17 @@
   gap: 8px;
   background-color: $color-primary;
   color: $color-white;
-  padding: 13px 24px;
+  padding: 12px 22px;
   border-radius: 8px;
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(18, 29, 51, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 200ms ease;
+  box-shadow: 0 4px 14px rgba(18, 29, 51, 0.18);
+  transition: all 180ms ease;
 
   &:hover {
     background-color: $color-dark;
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(18, 29, 51, 0.28);
   }
 }
 
@@ -176,20 +138,19 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: $gradient-gold;
+  background-color: $color-accent;
   color: $color-white;
-  padding: 13px 24px;
+  padding: 12px 22px;
   border-radius: 8px;
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(197, 154, 61, 0.32);
-  transition: all 200ms ease;
+  box-shadow: 0 4px 14px rgba(197, 154, 61, 0.28);
+  transition: all 180ms ease;
 
   &:hover {
-    filter: brightness(1.06);
+    background-color: $color-accent-hover;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(197, 154, 61, 0.42);
   }
 }
 
@@ -200,10 +161,10 @@
   font-size: 0.8125rem;
   font-weight: 600;
   color: #926f1c;
-  padding: 7px 16px;
+  padding: 6px 14px;
   background-color: rgba(197, 154, 61, 0.09);
   border-radius: 6px;
-  border: 1px solid rgba(197, 154, 61, 0.22);
+  border: 1px solid rgba(197, 154, 61, 0.2);
 }
 
 .locationFlourish {
@@ -217,18 +178,18 @@
   width: 100%;
 }
 
-/* Angular Luxury Mosaic */
+/* Exact Reference Multi-Photo Diagonal Mosaic */
 .heroMosaic {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 38px);
-  gap: 12px;
+  grid-template-rows: repeat(12, 36px);
+  gap: 10px;
   width: 100%;
-  max-width: 550px;
+  max-width: 540px;
   margin: 0 auto;
 
   @include respond-to('md') {
-    grid-template-rows: repeat(12, 44px);
+    grid-template-rows: repeat(12, 42px);
   }
 }
 
@@ -236,20 +197,24 @@
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(18, 29, 51, 0.16);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
   border: 3.5px solid $color-white;
-  background-color: #f0ede6;
+  background-color: #0d172a;
 
-  img {
+  img,
+  video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 450ms cubic-bezier(0.2, 0, 0.2, 1);
+    transition: transform 400ms ease;
   }
 
-  &:hover img {
-    transform: scale(1.06);
+  &:hover {
+    img,
+    video {
+      transform: scale(1.06);
+    }
   }
 }
 
@@ -285,7 +250,7 @@
 
 /* ============ FOUR BUSINESSES ============ */
 .divisions {
-  padding: 64px 0;
+  padding: 60px 0;
   background-color: #ffffff;
 }
 
@@ -296,7 +261,7 @@
 .divGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 18px;
 
   @include respond-to('sm') {
     grid-template-columns: 1fr 1fr;
@@ -310,35 +275,18 @@
 .divCard {
   background: $gradient-card;
   border: 1px solid #ede8df;
-  border-radius: 14px;
-  padding: 26px 22px;
+  border-radius: 12px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  transition: all 240ms ease;
+  transition: all 220ms ease;
   text-decoration: none;
-  box-shadow: 0 3px 12px rgba(18, 29, 51, 0.03);
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20px;
-    right: 20px;
-    height: 2px;
-    background: transparent;
-    transition: background 200ms ease;
-    border-radius: 0 0 2px 2px;
-  }
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 32px rgba(18, 29, 51, 0.09);
-    border-color: rgba(197, 154, 61, 0.5);
-
-    &::before {
-      background: $gradient-gold;
-    }
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(18, 29, 51, 0.08);
+    border-color: $color-accent;
 
     .divArrow {
       color: $color-accent;
@@ -348,23 +296,22 @@
 }
 
 .divIconWrap {
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
   &.navyIcon {
-    background: $gradient-navy;
+    background-color: $color-primary;
     color: $color-white;
   }
 
   &.goldIcon {
-    background: $gradient-gold;
+    background-color: $color-accent;
     color: $color-white;
   }
 }
@@ -377,17 +324,17 @@
 
 .divName {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: $color-primary;
   margin-bottom: 8px;
 }
 
 .divTagline {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: $color-muted;
-  line-height: 1.6;
-  margin-bottom: 18px;
+  line-height: 1.55;
+  margin-bottom: 16px;
   flex: 1;
 }
 
@@ -396,15 +343,15 @@
   align-items: center;
   gap: 6px;
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: $color-primary;
-  transition: all 200ms ease;
+  transition: transform 180ms ease, color 180ms ease;
 }
 
 /* ============ OUR STORY ============ */
 .about {
-  padding: 72px 0;
-  background-color: #faf7f2;
+  padding: 64px 0;
+  background-color: #faf8f5;
   position: relative;
   overflow: hidden;
 }
@@ -416,32 +363,26 @@
 .aboutGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 36px;
   align-items: center;
 
   @include respond-to('lg') {
     grid-template-columns: 1.05fr 0.95fr;
-    gap: 52px;
+    gap: 48px;
   }
 }
 
 .aboutImageWrap {
   position: relative;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 14px 36px rgba(18, 29, 51, 0.1);
-  border: 1px solid rgba(197, 154, 61, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
   img {
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
     display: block;
-    transition: transform 500ms ease;
-  }
-
-  &:hover img {
-    transform: scale(1.03);
   }
 }
 
@@ -456,64 +397,63 @@
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: $color-accent;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   border-left: 2px solid $color-accent;
-  padding-left: 10px;
+  padding-left: 8px;
 }
 
 .aboutTitle {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: $color-primary;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   line-height: 1.25;
 
   @include respond-to('md') {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
   }
 }
 
 .aboutText {
   color: $color-muted;
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  margin-bottom: 28px;
+  font-size: 0.925rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
 }
 
 .aboutBadges {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
 }
 
 .aboutBadge {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: $color-primary;
 }
 
 .aboutBadgeIcon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background-color: #f4ecdc;
-  color: #a87e2b;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: #f5eedf;
+  color: $color-accent;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(197, 154, 61, 0.12);
 }
 
 /* ============ ROOMS & TOURS DUAL SECTION ============ */
 .dualSection {
-  padding: 64px 0;
+  padding: 56px 0;
   background-color: #ffffff;
 }
 
@@ -524,11 +464,11 @@
 .dualGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 52px;
+  gap: 48px;
 
   @include respond-to('xl') {
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 36px;
   }
 }
 
@@ -540,8 +480,8 @@
 .cardsRow {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 14px;
+  margin-bottom: 22px;
 
   @include respond-to('sm') {
     grid-template-columns: repeat(3, 1fr);
@@ -549,20 +489,20 @@
 }
 
 .miniRoomCard {
-  background: #ffffff;
-  border: 1px solid #eae6df;
-  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #ede8df;
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 220ms ease;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
   text-decoration: none;
-  box-shadow: 0 3px 10px rgba(18, 29, 51, 0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 26px rgba(18, 29, 51, 0.09);
-    border-color: rgba(197, 154, 61, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(18, 29, 51, 0.08);
+    border-color: $color-accent;
   }
 }
 
@@ -577,16 +517,16 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 400ms ease;
+    transition: transform 350ms ease;
   }
 
   &:hover img {
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
 }
 
 .miniCardBody {
-  padding: 14px 12px;
+  padding: 12px 10px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -594,23 +534,23 @@
 
 .miniCardName {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: $color-primary;
   margin-bottom: 4px;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .miniCardDesc {
   font-size: 0.75rem;
   color: $color-muted;
-  line-height: 1.45;
-  margin-bottom: 12px;
+  line-height: 1.4;
+  margin-bottom: 10px;
   flex: 1;
 }
 
 .miniCardPrice {
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   color: $color-accent;
 
@@ -630,28 +570,27 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 22px;
+  padding: 7px 18px;
   border-radius: 20px;
   border: 1px solid #d4cebe;
   background-color: #ffffff;
   color: $color-primary;
   font-size: 0.8125rem;
-  font-weight: 700;
-  transition: all 200ms ease;
+  font-weight: 600;
+  transition: all 180ms ease;
   text-decoration: none;
 
   &:hover {
     background-color: $color-primary;
     color: $color-white;
     border-color: $color-primary;
-    box-shadow: 0 4px 12px rgba(18, 29, 51, 0.15);
   }
 }
 
 /* ============ VALUES THAT GUIDE US ============ */
 .whyUs {
-  padding: 64px 0;
-  background-color: #faf7f2;
+  padding: 56px 0;
+  background-color: #faf8f5;
 }
 
 .whyUsContainer {
@@ -661,7 +600,7 @@
 .whyUsGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 18px;
 
   @include respond-to('sm') {
     grid-template-columns: 1fr 1fr;
@@ -675,61 +614,59 @@
 .whyCard {
   background-color: #ffffff;
   border: 1px solid #ede8df;
-  border-radius: 14px;
-  padding: 26px 20px;
+  border-radius: 12px;
+  padding: 22px 18px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 220ms ease;
-  box-shadow: 0 3px 10px rgba(18, 29, 51, 0.03);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 26px rgba(18, 29, 51, 0.08);
-    border-color: rgba(197, 154, 61, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(18, 29, 51, 0.06);
   }
 }
 
 .whyIcon {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
   &.navyIcon {
-    background: $gradient-navy;
+    background-color: $color-primary;
     color: $color-white;
   }
 
   &.goldIcon {
-    background: $gradient-gold;
+    background-color: $color-accent;
     color: $color-white;
   }
 }
 
 .whyTitle {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 0.975rem;
   font-weight: 700;
   color: $color-primary;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .whyDesc {
-  font-size: 0.825rem;
+  font-size: 0.8125rem;
   color: $color-muted;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 /* ============ TESTIMONIALS ============ */
 .testimonials {
-  padding: 64px 0;
+  padding: 56px 0;
   background-color: #ffffff;
 }
 
@@ -740,7 +677,7 @@
 .testiGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 22px;
+  gap: 18px;
 
   @include respond-to('md') {
     grid-template-columns: repeat(3, 1fr);
@@ -748,24 +685,17 @@
 }
 
 .testiCard {
-  background: $gradient-card;
+  background-color: #ffffff;
   border: 1px solid #ede8df;
-  border-radius: 14px;
-  padding: 26px 22px;
+  border-radius: 12px;
+  padding: 22px 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 14px rgba(18, 29, 51, 0.03);
-  transition: all 220ms ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(18, 29, 51, 0.08);
-    border-color: rgba(197, 154, 61, 0.4);
-  }
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
 .testiQuoteIcon {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: $color-accent;
   line-height: 1;
   margin-bottom: 8px;
@@ -774,21 +704,20 @@
 
 .testiText {
   color: $color-primary;
-  font-size: 0.9rem;
-  line-height: 1.65;
-  margin-bottom: 16px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 14px;
   flex: 1;
 }
 
 .testiStars {
   display: flex;
-  gap: 4px;
-  margin-bottom: 16px;
+  gap: 3px;
+  margin-bottom: 14px;
 
   svg {
     color: $color-accent;
     fill: $color-accent;
-    filter: drop-shadow(0 0 2px rgba(197, 154, 61, 0.4));
   }
 }
 
@@ -799,16 +728,15 @@
 }
 
 .testiAvatar {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid $color-accent;
-  box-shadow: 0 2px 8px rgba(18, 29, 51, 0.12);
+  border: 2px solid #ede8df;
 }
 
 .testiName {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: $color-primary;
   margin-bottom: 2px;
@@ -816,6 +744,100 @@
 
 .testiLocation {
   font-size: 0.75rem;
+  color: $color-muted;
+}
+
+/* ============ FULL ROOM CARD (USED ACROSS HOMESTAY & SHARED) ============ */
+.roomCard {
+  background: #ffffff;
+  border: 1px solid #ede8df;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 240ms ease;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(18, 29, 51, 0.03);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(18, 29, 51, 0.09);
+    border-color: rgba(197, 154, 61, 0.5);
+  }
+}
+
+.roomImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.roomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms ease;
+
+  &:hover {
+    transform: scale(1.06);
+  }
+}
+
+.roomBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+.roomBody {
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.roomName {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $color-primary;
+  margin-bottom: 6px;
+}
+
+.roomLocation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: $color-muted;
+  font-size: 0.8125rem;
+  margin-bottom: 16px;
+
+  svg {
+    color: $color-accent;
+  }
+}
+
+.roomMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #f0ede6;
+  margin-top: auto;
+}
+
+.roomPrice {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: $color-accent;
+}
+
+.roomStatus {
+  font-size: 0.8125rem;
   color: $color-muted;
   font-weight: 500;
 }

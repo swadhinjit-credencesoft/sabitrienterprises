@@ -32,7 +32,7 @@
 .desktopLinks {
   display: none;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   height: 100%;
 
   @include respond-to('md') {
@@ -42,11 +42,11 @@
 
 .link {
   position: relative;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: $color-primary;
   white-space: nowrap;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: 6px;
   transition: color 200ms ease;
   text-decoration: none;
@@ -55,8 +55,8 @@
     content: '';
     position: absolute;
     bottom: -4px;
-    left: 14px;
-    right: 14px;
+    left: 16px;
+    right: 16px;
     height: 2px;
     background: $gradient-gold;
     border-radius: 2px;
@@ -76,7 +76,7 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .planBtn {
@@ -86,9 +86,9 @@
   background-color: $color-primary;
   color: $color-white;
   border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  padding: 11px 22px;
+  font-size: 0.9375rem;
+  font-weight: 700;
   text-decoration: none;
   border: 1px solid transparent;
   box-shadow: 0 4px 14px rgba(18, 29, 51, 0.15);
@@ -112,7 +112,7 @@
   align-items: center;
   justify-content: center;
   color: $color-primary;
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   border: none;
   background: transparent;

@@ -2,13 +2,13 @@
 @use '../../styles/mixins' as *;
 
 .section {
-  @include section-padding;
-  background-color: $color-background;
+  padding: 68px 0;
+  background-color: #faf8f5;
 }
 
 .sectionLight {
-  @include section-padding;
-  background-color: $color-white;
+  padding: 68px 0;
+  background-color: #ffffff;
 }
 
 .container {
@@ -17,23 +17,32 @@
 
 .caption {
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   color: $color-accent;
   margin-bottom: 12px;
   display: block;
 }
 
 .title {
-  color: $color-foreground;
-  margin-bottom: 8px;
+  font-family: var(--font-serif), Georgia, serif;
+  color: $color-primary;
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.25;
+
+  @include respond-to('md') {
+    font-size: 2.3rem;
+  }
 }
 
 .subtitle {
   color: $color-muted;
-  font-size: 0.9375rem;
-  margin-bottom: 24px;
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+  max-width: 600px;
 }
 
 /* Mission & Vision */
@@ -48,34 +57,40 @@
 }
 
 .mvCard {
-  background-color: $color-white;
-  border: 1px solid $color-border;
-  border-radius: $radius-xl;
+  background-color: #ffffff;
+  border: 1px solid #ede8df;
+  border-radius: 14px;
   padding: 36px;
-  transition: transform 300ms ease, box-shadow 300ms ease;
+  box-shadow: 0 3px 12px rgba(18, 29, 51, 0.03);
+  transition: all 220ms ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 12px 28px rgba(18, 29, 51, 0.08);
+    border-color: rgba(197, 154, 61, 0.5);
   }
 }
 
 .mvIcon {
-  width: 48px;
-  height: 48px;
-  background-color: rgba($color-foreground, 0.05);
+  width: 50px;
+  height: 50px;
+  background: $color-accent-light;
+  color: $color-accent;
   border-radius: 12px;
   @include flex-center;
   margin-bottom: 20px;
 
   svg {
-    color: $color-foreground;
+    color: $color-accent;
   }
 }
 
 .mvTitle {
-  color: $color-foreground;
+  font-family: var(--font-serif), Georgia, serif;
+  color: $color-primary;
   margin-bottom: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .mvText {
@@ -86,12 +101,13 @@
 
 /* Story */
 .story {
-  max-width: 760px;
+  max-width: 780px;
 
   .storyText {
     color: $color-muted;
     margin-bottom: 20px;
     line-height: 1.75;
+    font-size: 0.95rem;
   }
 }
 
@@ -99,195 +115,130 @@
 .chairmanGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
-  align-items: start;
+  gap: 40px;
+  align-items: center;
 
   @include respond-to('lg') {
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 48px;
   }
 }
 
 .chairmanImageWrap {
-  border-radius: $radius-2xl;
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 12px 32px rgba(18, 29, 51, 0.1);
+  border: 1px solid rgba(197, 154, 61, 0.25);
 
   img {
+    display: block;
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
   }
 }
 
-.chairmanText {
+.chairmanQuote {
   color: $color-muted;
   margin-bottom: 16px;
   line-height: 1.75;
+  font-size: 0.95rem;
 }
 
-/* Values */
-.valuesGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-
-  @include respond-to('sm') {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @include respond-to('lg') {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.chairmanName {
+  font-family: var(--font-serif), Georgia, serif;
+  color: $color-primary;
+  font-weight: 700;
+  font-size: 1.15rem;
 }
 
-.valueCard {
-  background-color: $color-white;
-  border: 1px solid $color-border;
-  border-radius: $radius-xl;
-  padding: 28px;
-  transition: transform 300ms ease, box-shadow 300ms ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
-
-    .valueIcon {
-      transform: scale(1.1);
-    }
-  }
-}
-
-.valueIcon {
-  width: 48px;
-  height: 48px;
-  background-color: rgba($color-foreground, 0.05);
-  border-radius: 12px;
-  @include flex-center;
-  margin-bottom: 20px;
-  transition: transform 300ms ease;
-
-  svg {
-    color: $color-foreground;
-  }
-}
-
-.valueTitle {
-  color: $color-foreground;
-  margin-bottom: 10px;
-}
-
-.valueDesc {
-  color: $color-muted;
+.chairmanRole {
+  color: $color-accent;
   font-size: 0.875rem;
+  font-weight: 600;
 }
 
 /* Timeline */
 .timeline {
-  max-width: 720px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   position: relative;
 
   &::before {
     content: '';
     position: absolute;
-    left: 14px;
     top: 0;
     bottom: 0;
-    width: 1px;
-    background-color: $color-border;
+    left: 20px;
+    width: 2px;
+    background: linear-gradient(180deg, $color-accent, rgba(197, 154, 61, 0.1));
 
-    @include respond-to('sm') {
-      left: 16px;
+    @include respond-to('md') {
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }
 
 .timelineItem {
   display: flex;
-  gap: 24px;
-  padding-bottom: 40px;
+  flex-direction: column;
   position: relative;
+  padding-left: 56px;
 
-  &:last-child {
-    padding-bottom: 0;
+  @include respond-to('md') {
+    padding-left: 0;
+    width: 45%;
+
+    &:nth-child(even) {
+      margin-left: auto;
+      text-align: left;
+    }
+
+    &:nth-child(odd) {
+      margin-right: auto;
+      text-align: right;
+    }
   }
 }
 
-.timelineMarker {
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
+.timelineDot {
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background-color: $color-white;
-  border: 1px solid $color-accent;
-  @include flex-center;
-  position: relative;
-  z-index: 1;
-  margin-top: 4px;
+  border: 3px solid $color-accent;
+  box-shadow: 0 0 8px rgba(197, 154, 61, 0.4);
 
-  @include respond-to('sm') {
-    width: 34px;
-    height: 34px;
+  @include respond-to('md') {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
 .timelineYear {
-  font-size: 0.6rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 700;
   color: $color-accent;
-  text-align: center;
-}
-
-.timelineContent {
-  background-color: $color-white;
-  border: 1px solid $color-border;
-  border-radius: $radius-xl;
-  padding: 24px;
-  flex: 1;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .timelineTitle {
-  color: $color-foreground;
-  margin-bottom: 8px;
+  font-family: var(--font-serif), Georgia, serif;
+  color: $color-primary;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
 .timelineDesc {
   color: $color-muted;
   font-size: 0.875rem;
   line-height: 1.6;
-}
-
-/* Why list */
-.whyList {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-
-  @include respond-to('md') {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.whyItem {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background-color: $color-background;
-  border: 1px solid $color-border;
-  border-radius: 12px;
-  padding: 16px 20px;
-  color: $color-foreground;
-  font-weight: 500;
-  font-size: 0.9375rem;
-}
-
-.whyCheck {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background-color: rgba($color-accent, 0.1);
-  color: $color-accent;
 }
