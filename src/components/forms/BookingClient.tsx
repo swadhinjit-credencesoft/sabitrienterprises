@@ -1,4 +1,4 @@
-'use client';
+﻿﻿'use client';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -13,17 +13,11 @@ import {
   MessageCircle,
   BedDouble,
   Clock,
-  MapPin,
   PartyPopper,
   Gem,
   Map,
   Brush,
   X,
-  CreditCard,
-  Smartphone,
-  Landmark,
-  Wallet,
-  ShieldCheck,
 } from 'lucide-react';
 import { Room, TourPackage, CollectionItem } from '@/types';
 import { rooms } from '@/data/rooms';
@@ -37,7 +31,7 @@ import styles from '@/components/forms/booking.module.scss';
 
 const today = new Date().toISOString().split('T')[0];
 
-const stepLabels = ['Choose', 'Details', 'Review', 'Payment'];
+const stepLabels = ['Choose', 'Details & Send'];
 
 const arrivalOptions = [
   '12:00 PM (Check-in time)',
@@ -87,7 +81,7 @@ function RoomDetail({
           <span className={styles.detailTag}>{room.status}</span>
           <h4 className={styles.detailTitle}>{room.name}</h4>
           <p className={styles.detailMeta}>
-            {room.size} · {room.beds} · up to {room.capacity} guests
+            {room.size} Â· {room.beds} Â· up to {room.capacity} guests
           </p>
         </div>
         <button
@@ -254,7 +248,7 @@ function ProductDetail({
           <span className={styles.detailTag}>{product.category}</span>
           <h4 className={styles.detailTitle}>{product.name}</h4>
           <p className={styles.detailMeta}>
-            {product.material} · {originLabel}: {origin}
+            {product.material} Â· {originLabel}: {origin}
           </p>
         </div>
         <button
@@ -408,10 +402,10 @@ export default function BookingClient() {
       name: room.name,
       meta:
         nights >= 1
-          ? `${checkIn} → ${checkOut} · ${nights} night${
+          ? `${checkIn} â†’ ${checkOut} Â· ${nights} night${
               nights === 1 ? '' : 's'
-            } · ${guests} guest${guests === 1 ? '' : 's'}`
-          : `Dates needed · ${room.price} / night · up to ${room.capacity} guests`,
+            } Â· ${guests} guest${guests === 1 ? '' : 's'}`
+          : `Dates needed Â· ${room.price} / night Â· up to ${room.capacity} guests`,
       image: room.image,
       total: nights >= 1 ? roomTotal : 0,
     });
@@ -420,9 +414,9 @@ export default function BookingClient() {
     selectedItems.push({
       title: 'Tour',
       name: tour.name,
-      meta: `${tour.duration} · ${travellers} traveller${
+      meta: `${tour.duration} Â· ${travellers} traveller${
         travellers === 1 ? '' : 's'
-      }${tourDate ? ` · ${tourDate}` : ''}`,
+      }${tourDate ? ` Â· ${tourDate}` : ''}`,
       image: tour.image,
       total: tourTotal,
     });
@@ -431,7 +425,7 @@ export default function BookingClient() {
     selectedItems.push({
       title: 'Jewellery',
       name: jProduct.name,
-      meta: `${jProduct.material} · ${jProduct.collection} · Qty ${jQty}`,
+      meta: `${jProduct.material} Â· ${jProduct.collection} Â· Qty ${jQty}`,
       image: jProduct.image,
       total: jTotal,
     });
@@ -440,7 +434,7 @@ export default function BookingClient() {
     selectedItems.push({
       title: 'Handicraft',
       name: hProduct.name,
-      meta: `${hProduct.material} · ${hProduct.craft} · Qty ${hQty}`,
+      meta: `${hProduct.material} Â· ${hProduct.craft} Â· Qty ${hQty}`,
       image: hProduct.image,
       total: hTotal,
     });
@@ -455,20 +449,11 @@ export default function BookingClient() {
       (email.trim() === '' || email.includes('@')),
   );
 
-  const canNext =
-    step === 0
-      ? hasSelection
-      : step === 1
-        ? detailsValid
-        : step === 2
-          ? true
-          : false;
+  const canNext = step === 0 ? hasSelection : detailsValid;
 
-  const nextLabel =
-    step === 1 ? 'Review & Confirm' : step === 2 ? 'Continue to Payment' : 'Continue';
+  const nextLabel = 'Continue';
 
-  const barCtaLabel =
-    step === 1 ? 'Review' : step === 2 ? 'Payment' : 'Continue';
+  const barCtaLabel = 'Continue';
 
   const goNext = () => {
     if (!canNext) return;
@@ -494,12 +479,12 @@ export default function BookingClient() {
         'HOMESTAY BOOKING',
         `Room: ${room.name}`,
         `Type: ${room.status}`,
-        `Room: ${room.size} · ${room.beds}`,
+        `Room: ${room.size} Â· ${room.beds}`,
         `Capacity: ${room.capacity} guests`,
         `Check-in: ${checkIn} (12:00 PM)`,
         `Check-out: ${checkOut} (11:00 AM)`,
         `Guests: ${guests}`,
-        `Nights × Rate: ${nights} × ${formatINR(roomRate)}`,
+        `Nights Ã— Rate: ${nights} Ã— ${formatINR(roomRate)}`,
         `Subtotal: ${formatINR(roomTotal)}`,
         `Stay link: ${SITE_URL}/homestay`,
       );
@@ -514,7 +499,7 @@ export default function BookingClient() {
         `Duration: ${tour.duration}`,
         `Rate per person: ${formatINR(tourRate)}`,
         `Travellers: ${travellers}`,
-        `Subtotal: ${formatINR(tourTotal)} (${travellers} × ${formatINR(
+        `Subtotal: ${formatINR(tourTotal)} (${travellers} Ã— ${formatINR(
           tourRate,
         )})`,
       );
@@ -543,7 +528,7 @@ export default function BookingClient() {
         );
       }
       lines.push(
-        `Subtotal: ${formatINR(unitPrice * jQty)} (${jQty} × ${formatINR(
+        `Subtotal: ${formatINR(unitPrice * jQty)} (${jQty} Ã— ${formatINR(
           unitPrice,
         )})`,
         `Product link: ${SITE_URL}/jewellery`,
@@ -563,7 +548,7 @@ export default function BookingClient() {
         `Material: ${hProduct.material}`,
         `Quantity: ${hQty}`,
         `Unit Price: ${formatINR(hUnitPrice)}`,
-        `Subtotal: ${formatINR(hUnitPrice * hQty)} (${hQty} × ${formatINR(
+        `Subtotal: ${formatINR(hUnitPrice * hQty)} (${hQty} Ã— ${formatINR(
           hUnitPrice,
         )})`,
         `Product link: ${SITE_URL}/handicrafts`,
@@ -605,25 +590,7 @@ export default function BookingClient() {
   };
 
   const SectionBadge = ({ show }: { show: boolean }) =>
-    show ? <span className={styles.sectionBadge}>Selected ✓</span> : null;
-
-  const paymentMethods = [
-    {
-      icon: <Smartphone size={22} />,
-      title: 'UPI — GPay, PhonePe, Paytm, BHIM',
-      desc: 'Instant and secure. No extra charges.',
-    },
-    {
-      icon: <Landmark size={22} />,
-      title: 'Bank Transfer (NEFT / IMPS)',
-      desc: 'Best for group stays and tour packages.',
-    },
-    {
-      icon: <Wallet size={22} />,
-      title: 'Pay on Arrival',
-      desc: 'Cash or card at the homestay front desk.',
-    },
-  ];
+    show ? <span className={styles.sectionBadge}>Selected âœ“</span> : null;
 
   return (
     <section className={styles.section}>
@@ -728,7 +695,7 @@ export default function BookingClient() {
                             <h4 className={styles.roomName}>{r.name}</h4>
                             <p className={styles.roomMeta}>
                               <Users size={13} />
-                              {r.capacity} guests · {r.size}
+                              {r.capacity} guests Â· {r.size}
                             </p>
                             <p className={styles.roomPriceLine}>
                               <span className={styles.roomPrice}>{r.price}</span>
@@ -807,7 +774,7 @@ export default function BookingClient() {
                     {nights >= 1 ? (
                       <p className={styles.nightsLine}>
                         <BedDouble size={15} />
-                        {nights} night{nights > 1 ? 's' : ''} ·{' '}
+                        {nights} night{nights > 1 ? 's' : ''} Â·{' '}
                         {formatINR(roomTotal)}
                       </p>
                     ) : (
@@ -888,7 +855,7 @@ export default function BookingClient() {
                           Travellers
                         </span>
                         <p className={styles.travellerHint}>
-                          {tour.price} · {formatINR(tourTotal)} total
+                          {tour.price} Â· {formatINR(tourTotal)} total
                         </p>
                       </div>
                       <div className={styles.guestStepper}>
@@ -1017,7 +984,7 @@ export default function BookingClient() {
                           Quantity
                         </span>
                         <p className={styles.travellerHint}>
-                          {jProduct.priceFrom} each · {formatINR(jTotal)}{' '}
+                          {jProduct.priceFrom} each Â· {formatINR(jTotal)}{' '}
                           estimated
                         </p>
                       </div>
@@ -1121,7 +1088,7 @@ export default function BookingClient() {
                           Quantity
                         </span>
                         <p className={styles.travellerHint}>
-                          {hProduct.priceFrom} each · {formatINR(hTotal)}{' '}
+                          {hProduct.priceFrom} each Â· {formatINR(hTotal)}{' '}
                           estimated
                         </p>
                       </div>
@@ -1155,7 +1122,8 @@ export default function BookingClient() {
                   <h2 className={styles.stepTitle}>Your Details</h2>
                   <p className={styles.stepDesc}>
                     Your WhatsApp number is all we need — add an email if you
-                    prefer a written confirmation.
+                    prefer a written confirmation. Then send your request
+                    directly.
                   </p>
                 </div>
 
@@ -1237,173 +1205,30 @@ export default function BookingClient() {
                     <a href="/policies/privacy-policy">Privacy Policy</a>.
                   </span>
                 </label>
-              </div>
-            )}
 
-            {step === 2 && (
-              <div className={styles.stepPanel}>
-                <div className={styles.stepHeading}>
-                  <span className={styles.stepCaption}>Step 3</span>
-                  <h2 className={styles.stepTitle}>Review & Confirm</h2>
-                  <p className={styles.stepDesc}>
-                    Please review your request. Everything looks right? Continue
-                    to payment to send it to our family team.
-                  </p>
-                </div>
-
-                <div className={styles.reviewCard}>
-                  <div className={styles.reviewGroup}>
-                    <h4 className={styles.reviewGroupTitle}>
-                      <MapPin size={16} />
-                      Your Selection
-                    </h4>
-                    {selectedItems.length > 0 ? (
-                      <div className={styles.reviewList}>
-                        {selectedItems.map((item) => (
-                          <div key={item.title + item.name} className={styles.reviewItem}>
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              className={styles.reviewImage}
-                            />
-                            <div className={styles.reviewItemBody}>
-                              <span className={styles.reviewItemTag}>
-                                {item.title}
-                              </span>
-                              <strong>{item.name}</strong>
-                              <span>{item.meta}</span>
-                            </div>
-                            <span className={styles.reviewPrice}>
-                              {formatINR(item.total)}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className={styles.reviewEmpty}>
-                        Nothing selected yet. Go back to Step 1.
+                {detailsValid && (
+                  <div className={styles.sendSection}>
+                    <div className={styles.sendHeader}>
+                      <span className={styles.sendTitle}>Send your request</span>
+                      <p className={styles.sendDesc}>
+                        Everything looks good — send it straight to our family
+                        team on WhatsApp or email.
                       </p>
+                    </div>
+
+                    {sent && (
+                      <div className={styles.sentNote}>
+                        <span className={styles.sentIcon}>
+                          <PartyPopper size={18} />
+                        </span>
+                        <p>
+                          Your request is open in your WhatsApp or email app —
+                          just hit send. We confirm availability within a few
+                          hours.
+                        </p>
+                      </div>
                     )}
-                  </div>
 
-                  <div className={styles.reviewGroup}>
-                    <h4 className={styles.reviewGroupTitle}>Your Details</h4>
-                    <div className={styles.reviewContact}>
-                      <p>
-                        <strong>{name}</strong> · {phone}
-                      </p>
-                      <p>{email}</p>
-                      <p>
-                        Preferred arrival / contact time: {arrival}
-                        {requests.trim() && ` · ${requests.trim()}`}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className={styles.reviewTotal}>
-                    <span>Estimated total</span>
-                    <strong>{formatINR(grandTotal)}</strong>
-                  </div>
-                  <p className={styles.reviewNote}>
-                    Product prices are indicative (from) — final quotes depend
-                    on current rates, customisation, and shipping. Room and
-                    tour totals may be adjusted for festival periods. Our team
-                    confirms everything before any payment.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {step === 3 && (
-              <div className={styles.stepPanel}>
-                <div className={styles.stepHeading}>
-                  <span className={styles.stepCaption}>Step 4</span>
-                  <h2 className={styles.stepTitle}>Payment & Finalisation</h2>
-                  <p className={styles.stepDesc}>
-                    We don&apos;t collect payments on this site. Review how you
-                    can pay, then send your request — our family team confirms
-                    availability and shares a secure payment link.
-                  </p>
-                </div>
-
-                <div className={styles.payCard}>
-                  <div className={styles.payNow}>
-                    <span className={styles.payNowLabel}>Total to pay</span>
-                    <strong className={styles.payNowAmount}>
-                      {formatINR(grandTotal)}
-                    </strong>
-                    <span className={styles.payNowHint}>
-                      Estimated — you pay only after we confirm availability.
-                      A small advance holds your booking.
-                    </span>
-                  </div>
-
-                  <h4 className={styles.payCardTitle}>
-                    <CreditCard size={16} />
-                    How you can pay
-                  </h4>
-                  <div className={styles.payMethods}>
-                    {paymentMethods.map((m) => (
-                      <div key={m.title} className={styles.payMethod}>
-                        <span className={styles.payIcon}>{m.icon}</span>
-                        <div className={styles.payMethodBody}>
-                          <strong>{m.title}</strong>
-                          <span>{m.desc}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className={styles.payTrust}>
-                    <ShieldCheck size={18} />
-                    <span>
-                      You pay only after we confirm availability and share a
-                      verified payment link. Never share UPI PINs or OTPs.
-                    </span>
-                  </div>
-
-                  <p className={styles.payNote}>
-                    Product prices are indicative (from). Room and tour totals
-                    may be adjusted for festival periods. Final quote is
-                    confirmed by our team before any payment.
-                  </p>
-
-                  {sent ? (
-                    <div className={styles.success}>
-                      <span className={styles.successIcon}>
-                        <PartyPopper size={28} />
-                      </span>
-                      <h3 className={styles.successTitle}>
-                        Request ready to send!
-                      </h3>
-                      <p className={styles.successText}>
-                        Your details are in your WhatsApp or email app — just
-                        hit send. Our family team will confirm availability and
-                        share a secure payment link within a few hours.
-                      </p>
-                      <p className={styles.successRef}>
-                        Can&apos;t find the app? Use the buttons below again.
-                      </p>
-                      <div className={styles.reviewActions}>
-                        <a
-                          href={whatsappHref}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`${styles.sendBtn} ${styles.whatsappBtn}`}
-                        >
-                          <MessageCircle size={18} />
-                          Open WhatsApp
-                        </a>
-                        <a
-                          href={emailHref}
-                          className={`${styles.sendBtn} ${styles.emailBtn}`}
-                        >
-                          <Mail size={18} />
-                          Open Email
-                        </a>
-                      </div>
-                    </div>
-                  ) : (
                     <div className={styles.reviewActions}>
                       <button
                         type="button"
@@ -1411,7 +1236,7 @@ export default function BookingClient() {
                         className={`${styles.sendBtn} ${styles.whatsappBtn}`}
                       >
                         <MessageCircle size={18} />
-                        Confirm & get payment link
+                        Send via WhatsApp
                       </button>
                       <button
                         type="button"
@@ -1419,15 +1244,19 @@ export default function BookingClient() {
                         className={`${styles.sendBtn} ${styles.emailBtn}`}
                       >
                         <Mail size={18} />
-                        Confirm via Email
+                        Send via Email
                       </button>
                     </div>
-                  )}
-                </div>
+                    <p className={styles.sendHint}>
+                      No payment needed now — we confirm availability first,
+                      then share a secure payment link.
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 
-            <div className={styles.navButtons}>
+                        <div className={styles.navButtons}>
               <button
                 type="button"
                 className={styles.backBtn}
@@ -1523,7 +1352,7 @@ export default function BookingClient() {
                     key={item.title + item.name}
                     className={styles.summaryBarItem}
                   >
-                    {item.title} · {item.name}
+                    {item.title} Â· {item.name}
                   </span>
                 ))
               ) : (
