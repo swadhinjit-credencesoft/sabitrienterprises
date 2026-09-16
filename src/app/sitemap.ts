@@ -4,6 +4,7 @@ import { rooms } from '@/data/rooms';
 import { tourPackages } from '@/data/tours';
 import { blogPosts } from '@/data/blog';
 import { policies } from '@/data/policies';
+import { jewelleryCollections } from '@/data/jewellery';
 
 export const dynamic = 'force-static';
 
@@ -64,11 +65,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.4,
   }));
 
+  const jewelleryRoutes: MetadataRoute.Sitemap = jewelleryCollections.flatMap(
+    (collection) =>
+      collection.products.map((product) => ({
+        url: `${SITE_URL}/jewellery/${product.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      }))
+  );
+
   return [
     ...staticSitemap,
     ...roomRoutes,
     ...tourRoutes,
     ...blogRoutes,
     ...policyRoutes,
+    ...jewelleryRoutes,
   ];
 }

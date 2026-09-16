@@ -91,12 +91,20 @@ export default function JewelleryPage() {
                             </span>
                           )}
                         </div>
-                        <Link
-                          href={`/booking?division=jewellery&product=${product.slug}`}
-                          className={styles.enquireLink}
-                        >
-                          Enquire
-                        </Link>
+                        <div className={styles.productActions}>
+                          <Link
+                            href={`/jewellery/${product.slug}`}
+                            className={styles.viewLink}
+                          >
+                            View Details
+                          </Link>
+                          <Link
+                            href={`/booking?division=jewellery&product=${product.slug}`}
+                            className={styles.enquireLink}
+                          >
+                            Enquire
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
