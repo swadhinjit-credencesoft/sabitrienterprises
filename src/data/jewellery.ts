@@ -41,7 +41,7 @@ export const jewelleryCollections: ProductCategory[] = [
         priceFrom: '₹3,499',
         price: '₹3,499',
         mrp: '₹4,499',
-        image: IMG.silver3,
+        image: IMG.silver10,
         description:
           'Features the iconic divine face of Lord Jagannath with vibrant red, white, black, and yellow enamel detailing, elegantly framed by an intricate ornamental silver border. Crafted in 925 sterling silver (92.5%). 25mm, approx 5 grams. Perfect for puja, temple visits, and daily devotion.',
       },
@@ -53,7 +53,7 @@ export const jewelleryCollections: ProductCategory[] = [
         priceFrom: '₹3,999',
         price: '₹3,999',
         mrp: '₹5,499',
-        image: IMG.silver4,
+        image: IMG.silver9,
         description:
           'Captures the benevolent round eyes and radiant smile of Lord Jagannath in vivid high-grade enamel within an intricate floral silver halo. Hallmarked 925 sterling silver with filigree petal border. 25mm, approx 6 grams. A majestic, radiant symbol of divine serenity.',
       },
@@ -74,7 +74,7 @@ export const jewelleryCollections: ProductCategory[] = [
         priceFrom: '₹1,499',
         price: '₹1,499',
         mrp: '₹1,799',
-        image: IMG.silver5,
+        image: IMG.silver11,
         description:
           'A graceful Om symbol with a vibrant orange enamel-style finish in polished 925 sterling silver (92.5%). 15mm, approx 1.5 grams. A meaningful expression of faith for daily wear, festivals, pooja, and gifting.',
       },
@@ -86,7 +86,7 @@ export const jewelleryCollections: ProductCategory[] = [
         priceFrom: '₹1,899',
         price: '₹1,899',
         mrp: '₹2,999',
-        image: IMG.silver6,
+        image: IMG.silver7,
         description:
           'The sacred Om symbol encased in a polished circular frame with vibrant yellow enamel inlay — symbolizing positivity, energy, and inner peace. Certified 925 sterling silver, lightweight hollow frame. 15mm, approx 2.5 grams. Unisex, pairs with chains, cords, or sacred threads.',
       },
@@ -98,7 +98,7 @@ export const jewelleryCollections: ProductCategory[] = [
         priceFrom: '₹1,699',
         price: '₹1,699',
         mrp: '₹2,499',
-        image: IMG.silver7,
+        image: IMG.silver5,
         description:
           'Sacred Om silhouette highlighted by a glossy red enamel top accent (Chandra-Bindu) — symbolizing strength, passion, and spiritual auspiciousness. High-polish 925 sterling silver, hollow and lightweight. 15mm, approx 2 grams. Ideal for daily spiritual wear and puja.',
       },
@@ -119,7 +119,7 @@ export const jewelleryCollections: ProductCategory[] = [
   {
     slug: 'american-diamond-pendants',
     name: '925 Sterling Silver American Diamond (AD) Pendants',
-    image: IMG.silver9,
+    image: IMG.silver12,
     description:
       'Dazzling solitaire and halo pendants crafted in 925 sterling silver with brilliant-cut American Diamond (AD) stones and micro-pavé detailing — high-polish rhodium finish for long-lasting sparkle and tarnish resistance.',
     products: [
@@ -131,7 +131,7 @@ export const jewelleryCollections: ProductCategory[] = [
         priceFrom: '₹1,799',
         price: '₹1,799',
         mrp: '₹2,999',
-        image: IMG.silver9,
+        image: IMG.silver12,
         description:
           'A brilliantly faceted round American Diamond (AD) solitaire in a secure 4-prong setting, framed by a delicate crescent of micro-pavé accent stones. Certified 925 sterling silver, high-polish rhodium finish. 10mm, approx 2 grams. Perfect for daily luxury, office wear, and parties.',
       },
@@ -143,7 +143,7 @@ export const jewelleryCollections: ProductCategory[] = [
         priceFrom: '₹1,799',
         price: '₹1,799',
         mrp: '₹2,999',
-        image: IMG.silver10,
+        image: IMG.silver4,
         description:
           'A precision-faceted AD solitaire framed by a delicate intertwined floral halo of micro-pavé stones. Hallmarked 925 sterling silver with an anti-tarnish rhodium coating. 10mm, approx 2 grams. A graceful blend of classic luxury and modern sophistication.',
       },
@@ -155,7 +155,7 @@ export const jewelleryCollections: ProductCategory[] = [
         priceFrom: '₹1,799',
         price: '₹1,799',
         mrp: '₹2,999',
-        image: IMG.silver11,
+        image: IMG.silver12,
         description:
           'A round-cut AD solitaire at the center surrounded by an intricate multi-pointed star halo of accent gems and micro-pavé crystal points. Hallmarked 925 sterling silver, high-polish rhodium finish. 10mm, approx 2 grams. A radiant piece for festive and formal evenings.',
       },

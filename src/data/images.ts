@@ -42,17 +42,19 @@
   jewelleryGold: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=85&w=1200&auto=format&fit=crop',
   
   // Silver Products
-  silver1: '/silverimage/silver1.jpeg',
-  silver2: '/silverimage/silver2.jpeg',
+  silver1: '/silverimage/silver3.jpeg',
+  silver2: '/silverimage/silver8.jpeg',
   silver3: '/silverimage/silver3.jpeg',
   silver4: '/silverimage/silver4.jpeg',
   silver5: '/silverimage/silver5.jpeg',
   silver6: '/silverimage/silver6.jpeg',
   silver7: '/silverimage/silver7.jpeg',
-  silver8: '/silverimage/silver8.jpeg',
+  silver8: '/silverimage/silver6.jpeg',
   silver9: '/silverimage/silver9.jpeg',
   silver10: '/silverimage/silver10.jpeg',
   silver11: '/silverimage/silver11.jpeg',
+  silver12: '/silverimage/silver1.jpeg',
+  silver13: '/silverimage/silver2.jpeg',
   
   // Avatars (Crisp & Professional)
   man1: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=85&w=400&auto=format&fit=crop',
