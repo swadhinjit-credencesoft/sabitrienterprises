@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import CTASection from '@/components/shared/CTASection';
 import { jewelleryCollections } from '@/data/jewellery';
+import { buildMetadata } from '@/lib/metadata';
 import styles from '@/app/jewellery/[slug]/jewellery-detail.module.scss';
 
 export function generateStaticParams() {
@@ -30,12 +31,14 @@ export async function generateMetadata({
     .flatMap((c) => c.products)
     .find((p) => p.slug === slug);
 
-  return {
+  return buildMetadata({
     title: product ? product.name : 'Jewellery',
     description: product
       ? `${product.name} — ${product.material}. ${product.description}`
       : 'Sabitri Jewellery product.',
-  };
+    path: `/jewellery/${slug}`,
+    image: product?.image,
+  });
 }
 
 const trustBadges = [
@@ -88,7 +91,7 @@ export default async function JewelleryDetailPage({
             className={styles.collectionEyebrow}
           >
             <span className={styles.eyebrowLine} />
-            {collection.name}
+            <span className={styles.eyebrowLabel}>{collection.name}</span>
           </Link>
           <h1 className={styles.title}>{product.name}</h1>
           <span className={styles.materialChip}>{product.material}</span>

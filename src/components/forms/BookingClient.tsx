@@ -1,4 +1,4 @@
-﻿﻿'use client';
+'use client';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -81,7 +81,7 @@ function RoomDetail({
           <span className={styles.detailTag}>{room.status}</span>
           <h4 className={styles.detailTitle}>{room.name}</h4>
           <p className={styles.detailMeta}>
-            {room.size} Â· {room.beds} Â· up to {room.capacity} guests
+            {room.size} · {room.beds} · up to {room.capacity} guests
           </p>
         </div>
         <button
@@ -248,7 +248,7 @@ function ProductDetail({
           <span className={styles.detailTag}>{product.category}</span>
           <h4 className={styles.detailTitle}>{product.name}</h4>
           <p className={styles.detailMeta}>
-            {product.material} Â· {originLabel}: {origin}
+            {product.material} · {originLabel}: {origin}
           </p>
         </div>
         <button
@@ -402,10 +402,10 @@ export default function BookingClient() {
       name: room.name,
       meta:
         nights >= 1
-          ? `${checkIn} â†’ ${checkOut} Â· ${nights} night${
+          ? `${checkIn} → ${checkOut} · ${nights} night${
               nights === 1 ? '' : 's'
-            } Â· ${guests} guest${guests === 1 ? '' : 's'}`
-          : `Dates needed Â· ${room.price} / night Â· up to ${room.capacity} guests`,
+            } · ${guests} guest${guests === 1 ? '' : 's'}`
+          : `Dates needed · ${room.price} / night · up to ${room.capacity} guests`,
       image: room.image,
       total: nights >= 1 ? roomTotal : 0,
     });
@@ -414,9 +414,9 @@ export default function BookingClient() {
     selectedItems.push({
       title: 'Tour',
       name: tour.name,
-      meta: `${tour.duration} Â· ${travellers} traveller${
+      meta: `${tour.duration} · ${travellers} traveller${
         travellers === 1 ? '' : 's'
-      }${tourDate ? ` Â· ${tourDate}` : ''}`,
+      }${tourDate ? ` · ${tourDate}` : ''}`,
       image: tour.image,
       total: tourTotal,
     });
@@ -425,7 +425,7 @@ export default function BookingClient() {
     selectedItems.push({
       title: 'Jewellery',
       name: jProduct.name,
-      meta: `${jProduct.material} Â· ${jProduct.collection} Â· Qty ${jQty}`,
+      meta: `${jProduct.material} · ${jProduct.collection} · Qty ${jQty}`,
       image: jProduct.image,
       total: jTotal,
     });
@@ -434,7 +434,7 @@ export default function BookingClient() {
     selectedItems.push({
       title: 'Handicraft',
       name: hProduct.name,
-      meta: `${hProduct.material} Â· ${hProduct.craft} Â· Qty ${hQty}`,
+      meta: `${hProduct.material} · ${hProduct.craft} · Qty ${hQty}`,
       image: hProduct.image,
       total: hTotal,
     });
@@ -479,12 +479,12 @@ export default function BookingClient() {
         'HOMESTAY BOOKING',
         `Room: ${room.name}`,
         `Type: ${room.status}`,
-        `Room: ${room.size} Â· ${room.beds}`,
+        `Room: ${room.size} · ${room.beds}`,
         `Capacity: ${room.capacity} guests`,
         `Check-in: ${checkIn} (12:00 PM)`,
         `Check-out: ${checkOut} (11:00 AM)`,
         `Guests: ${guests}`,
-        `Nights Ã— Rate: ${nights} Ã— ${formatINR(roomRate)}`,
+        `Nights × Rate: ${nights} × ${formatINR(roomRate)}`,
         `Subtotal: ${formatINR(roomTotal)}`,
         `Stay link: ${SITE_URL}/homestay`,
       );
@@ -499,7 +499,7 @@ export default function BookingClient() {
         `Duration: ${tour.duration}`,
         `Rate per person: ${formatINR(tourRate)}`,
         `Travellers: ${travellers}`,
-        `Subtotal: ${formatINR(tourTotal)} (${travellers} Ã— ${formatINR(
+        `Subtotal: ${formatINR(tourTotal)} (${travellers} × ${formatINR(
           tourRate,
         )})`,
       );
@@ -528,10 +528,11 @@ export default function BookingClient() {
         );
       }
       lines.push(
-        `Subtotal: ${formatINR(unitPrice * jQty)} (${jQty} Ã— ${formatINR(
+        `Subtotal: ${formatINR(unitPrice * jQty)} (${jQty} × ${formatINR(
           unitPrice,
         )})`,
-        `Product link: ${SITE_URL}/jewellery`,
+        `Product link: ${SITE_URL}/jewellery/${jProduct.slug}`,
+        `Product image: ${SITE_URL}${jProduct.image}`,
       );
       if (jProduct.description) {
         lines.push(`Details: ${jProduct.description}`);
@@ -548,10 +549,11 @@ export default function BookingClient() {
         `Material: ${hProduct.material}`,
         `Quantity: ${hQty}`,
         `Unit Price: ${formatINR(hUnitPrice)}`,
-        `Subtotal: ${formatINR(hUnitPrice * hQty)} (${hQty} Ã— ${formatINR(
+        `Subtotal: ${formatINR(hUnitPrice * hQty)} (${hQty} × ${formatINR(
           hUnitPrice,
         )})`,
         `Product link: ${SITE_URL}/handicrafts`,
+        `Product image: ${SITE_URL}${hProduct.image}`,
       );
       if (hProduct.description) {
         lines.push(`Details: ${hProduct.description}`);
@@ -590,7 +592,7 @@ export default function BookingClient() {
   };
 
   const SectionBadge = ({ show }: { show: boolean }) =>
-    show ? <span className={styles.sectionBadge}>Selected âœ“</span> : null;
+    show ? <span className={styles.sectionBadge}>Selected ✓</span> : null;
 
   return (
     <section className={styles.section}>
@@ -695,7 +697,7 @@ export default function BookingClient() {
                             <h4 className={styles.roomName}>{r.name}</h4>
                             <p className={styles.roomMeta}>
                               <Users size={13} />
-                              {r.capacity} guests Â· {r.size}
+                              {r.capacity} guests · {r.size}
                             </p>
                             <p className={styles.roomPriceLine}>
                               <span className={styles.roomPrice}>{r.price}</span>
@@ -774,7 +776,7 @@ export default function BookingClient() {
                     {nights >= 1 ? (
                       <p className={styles.nightsLine}>
                         <BedDouble size={15} />
-                        {nights} night{nights > 1 ? 's' : ''} Â·{' '}
+                        {nights} night{nights > 1 ? 's' : ''} ·{' '}
                         {formatINR(roomTotal)}
                       </p>
                     ) : (
@@ -855,7 +857,7 @@ export default function BookingClient() {
                           Travellers
                         </span>
                         <p className={styles.travellerHint}>
-                          {tour.price} Â· {formatINR(tourTotal)} total
+                          {tour.price} · {formatINR(tourTotal)} total
                         </p>
                       </div>
                       <div className={styles.guestStepper}>
@@ -984,7 +986,7 @@ export default function BookingClient() {
                           Quantity
                         </span>
                         <p className={styles.travellerHint}>
-                          {jProduct.priceFrom} each Â· {formatINR(jTotal)}{' '}
+                          {jProduct.priceFrom} each · {formatINR(jTotal)}{' '}
                           estimated
                         </p>
                       </div>
@@ -1088,7 +1090,7 @@ export default function BookingClient() {
                           Quantity
                         </span>
                         <p className={styles.travellerHint}>
-                          {hProduct.priceFrom} each Â· {formatINR(hTotal)}{' '}
+                          {hProduct.priceFrom} each · {formatINR(hTotal)}{' '}
                           estimated
                         </p>
                       </div>
@@ -1352,7 +1354,7 @@ export default function BookingClient() {
                     key={item.title + item.name}
                     className={styles.summaryBarItem}
                   >
-                    {item.title} Â· {item.name}
+                    {item.title} · {item.name}
                   </span>
                 ))
               ) : (
